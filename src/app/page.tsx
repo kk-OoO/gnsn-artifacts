@@ -8,12 +8,19 @@ import {
   saveStoredArtifacts,
   resetToEmptyData,
   loadPresetSamples,
+  loadOwnedCharacterIds,
+  saveOwnedCharacterIds,
+  loadSatisfiedCharacterIds,
+  saveSatisfiedCharacterIds,
+  loadOnlyOwnedFilter,
+  saveOnlyOwnedFilter,
 } from '@/utils/storage';
 import { Header, ActiveTab } from '@/components/Header';
 import { ArtifactList } from '@/components/ArtifactList';
 import { CharacterRecommendList } from '@/components/CharacterRecommendList';
 import { EquipSimulator } from '@/components/EquipSimulator';
 import { ArtifactFormModal } from '@/components/ArtifactFormModal';
+import { CharacterOwnershipSettings } from '@/components/CharacterOwnershipSettings';
 
 export default function Home() {
   const [artifacts, setArtifacts] = useState<Artifact[]>([]);
@@ -22,15 +29,24 @@ export default function Home() {
   const [selectedCharacterId, setSelectedCharacterId] =
     useState<string>('neuvillette');
 
+  // 所持キャラ & 満足キャラ状態
+  const [ownedCharacterIds, setOwnedCharacterIds] = useState<string[]>([]);
+  const [satisfiedCharacterIds, setSatisfiedCharacterIds] = useState<string[]>(
+    []
+  );
+  const [onlyOwnedFilter, setOnlyOwnedFilter] = useState<boolean>(false);
+
   // モーダル管理
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingArtifact, setEditingArtifact] = useState<Artifact | null>(null);
 
   // 初期ロード
   useEffect(() => {
-    // ユーザーからの「仮データは消してくれていい」リクエストに応じ、
-    // 過去の古いモックデータ（art-mh-等）がlocalStorageにある場合はリセット
-    const raw = typeof window !== 'undefined' ? localStorage.getItem('genshin_artifacts_data_v1') : null;
+    // 聖遺物ロード（古いモックデータがあればクリア）
+    const raw =
+      typeof window !== 'undefined'
+        ? localStorage.getItem('genshin_artifacts_data_v1')
+        : null;
     if (raw && raw.includes('art-mh-flower-1')) {
       const empty = resetToEmptyData();
       setArtifacts(empty);
@@ -38,6 +54,17 @@ export default function Home() {
       const loaded = loadStoredArtifacts();
       setArtifacts(loaded);
     }
+
+    // 所持キャラ・満足キャラロード
+    const allIds = CHARACTERS.map((c) => c.id);
+    const owned = loadOwnedCharacterIds(allIds);
+    setOwnedCharacterIds(owned);
+
+    const satisfied = loadSatisfiedCharacterIds();
+    setSatisfiedCharacterIds(satisfied);
+
+    const onlyOwned = loadOnlyOwnedFilter();
+    setOnlyOwnedFilter(onlyOwned);
   }, []);
 
   // 聖遺物更新
@@ -82,6 +109,30 @@ export default function Home() {
     setActiveTab('equip');
   };
 
+  // 所持キャラ更新
+  const handleUpdateOwnedCharacters = (ids: string[]) => {
+    setOwnedCharacterIds(ids);
+    saveOwnedCharacterIds(ids);
+  };
+
+  // 満足・厳選完了キャラのトグル
+  const handleToggleSatisfied = (charId: string) => {
+    let updated: string[];
+    if (satisfiedCharacterIds.includes(charId)) {
+      updated = satisfiedCharacterIds.filter((id) => id !== charId);
+    } else {
+      updated = [...satisfiedCharacterIds, charId];
+    }
+    setSatisfiedCharacterIds(updated);
+    saveSatisfiedCharacterIds(updated);
+  };
+
+  // 「所持キャラのみ表示」トグル
+  const handleToggleOnlyOwnedFilter = (enabled: boolean) => {
+    setOnlyOwnedFilter(enabled);
+    saveOnlyOwnedFilter(enabled);
+  };
+
   // 全データクリア
   const handleResetData = () => {
     const empty = resetToEmptyData();
@@ -109,6 +160,8 @@ export default function Home() {
         onLoadSamples={handleLoadSamples}
         artifacts={artifacts}
         onImportData={handleImportData}
+        ownedCount={ownedCharacterIds.length}
+        satisfiedCount={satisfiedCharacterIds.length}
       />
 
       {/* メインコンテンツ */}
@@ -120,6 +173,10 @@ export default function Home() {
             onSelectCharacter={setSelectedCharacterId}
             artifacts={artifacts}
             onUpdateArtifacts={handleUpdateArtifacts}
+            satisfiedCharacterIds={satisfiedCharacterIds}
+            onToggleSatisfied={handleToggleSatisfied}
+            ownedCharacterIds={ownedCharacterIds}
+            onlyOwnedFilter={onlyOwnedFilter}
           />
         )}
 
@@ -137,6 +194,22 @@ export default function Home() {
           <CharacterRecommendList
             characters={characters}
             onSelectCharacterForEquip={handleSelectCharacterForEquip}
+            satisfiedCharacterIds={satisfiedCharacterIds}
+            onToggleSatisfied={handleToggleSatisfied}
+            ownedCharacterIds={ownedCharacterIds}
+            onlyOwnedFilter={onlyOwnedFilter}
+          />
+        )}
+
+        {activeTab === 'characters' && (
+          <CharacterOwnershipSettings
+            characters={characters}
+            ownedCharacterIds={ownedCharacterIds}
+            onUpdateOwnedCharacters={handleUpdateOwnedCharacters}
+            satisfiedCharacterIds={satisfiedCharacterIds}
+            onToggleSatisfied={handleToggleSatisfied}
+            onlyOwnedFilter={onlyOwnedFilter}
+            onToggleOnlyOwnedFilter={handleToggleOnlyOwnedFilter}
           />
         )}
       </main>

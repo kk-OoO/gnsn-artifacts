@@ -4,7 +4,7 @@ const genshindb = require('genshin-db');
 
 genshindb.setOptions({ queryLanguages: ['Japanese', 'English'], resultLanguage: 'Japanese' });
 
-// 1. 全聖遺物セットの抽出
+// 1. 全聖遺物セットの抽出 (enka.network CDNの画像URLを優先)
 const artifactNames = genshindb.artifacts('names', { matchCategories: true });
 console.log(`Extracting ${artifactNames.length} artifact sets...`);
 
@@ -30,11 +30,15 @@ function parsePiece2Stats(text) {
   return Object.keys(stats).length > 0 ? stats : undefined;
 }
 
+function getRelicUrl(filename, fallbackUrl) {
+  if (filename) return `https://enka.network/ui/${filename}.png`;
+  return fallbackUrl || '';
+}
+
 for (const name of artifactNames) {
   const art = genshindb.artifacts(name);
   if (!art) continue;
 
-  // 英語名または正規化キーをIDとして使用
   const engArt = genshindb.artifacts(name, { resultLanguage: 'English' });
   let id = (engArt?.name || name)
     .toLowerCase()
@@ -49,6 +53,13 @@ for (const name of artifactNames) {
   const piece4 = art.effect4Pc || '';
   const piece2Stats = parsePiece2Stats(piece2);
 
+  const imgs = art.images || {};
+  const flowerImg = getRelicUrl(imgs.filename_flower, imgs.mihoyo_flower || imgs.flower);
+  const plumeImg = getRelicUrl(imgs.filename_plume, imgs.mihoyo_plume || imgs.plume);
+  const sandsImg = getRelicUrl(imgs.filename_sands, imgs.mihoyo_sands || imgs.sands);
+  const gobletImg = getRelicUrl(imgs.filename_goblet, imgs.mihoyo_goblet || imgs.goblet);
+  const circletImg = getRelicUrl(imgs.filename_circlet, imgs.mihoyo_circlet || imgs.circlet);
+
   artifactSets[id] = {
     id,
     name: art.name,
@@ -56,11 +67,11 @@ for (const name of artifactNames) {
     piece4: piece4 || '4セット効果なし',
     piece2Stats,
     images: {
-      flower: art.images?.mihoyo_flower || art.images?.flower || '',
-      plume: art.images?.mihoyo_plume || art.images?.plume || '',
-      sands: art.images?.mihoyo_sands || art.images?.sands || '',
-      goblet: art.images?.mihoyo_goblet || art.images?.goblet || '',
-      circlet: art.images?.mihoyo_circlet || art.images?.circlet || '',
+      flower: flowerImg,
+      plume: plumeImg,
+      sands: sandsImg,
+      goblet: gobletImg,
+      circlet: circletImg,
     }
   };
 }
@@ -91,13 +102,6 @@ const WEAPON_MAP = {
 
 const characters = [];
 
-// 既存の手動作成済みキャラリストをマッピング用に保持
-const MANUAL_CHAR_IDS = [
-  'neuvillette', 'furina', 'kazuha', 'raiden', 'nahida',
-  'yelan', 'arlecchino', 'hutao', 'zhongli', 'bennett',
-  'xiangling', 'mualani', 'kinich', 'mavuika'
-];
-
 for (const name of charNames) {
   const c = genshindb.characters(name);
   if (!c || !c.rarity || !c.weaponType) continue;
@@ -111,7 +115,6 @@ for (const name of charNames) {
     .replace(/^_+|_+$/g, '')
     .replace(/_+/g, '_');
 
-  // 空や旅人の重複スキップ・調整
   if (id === 'traveler' && c.name.includes('風')) id = 'traveler_anemo';
   else if (id === 'traveler' && c.name.includes('岩')) id = 'traveler_geo';
   else if (id === 'traveler' && c.name.includes('雷')) id = 'traveler_electro';
@@ -122,7 +125,14 @@ for (const name of charNames) {
   const element = ELEMENT_MAP[c.elementText] || 'anemo';
   const weapon = WEAPON_MAP[c.weaponType] || 'sword';
   const rarity = c.rarity === 4 ? 4 : 5;
-  const avatarUrl = c.images?.mihoyo_icon || c.images?.icon || '';
+
+  // enka.networkのアイコンURLを優先
+  let avatarUrl = '';
+  if (c.images?.filename_icon) {
+    avatarUrl = `https://enka.network/ui/${c.images.filename_icon}.png`;
+  } else if (c.images?.mihoyo_icon) {
+    avatarUrl = c.images.mihoyo_icon;
+  }
 
   // デフォルトロール推論
   let role = 'Main DPS';
@@ -136,7 +146,6 @@ for (const name of charNames) {
     role = 'Sub DPS';
   }
 
-  // 推奨セット・ビルドの自動生成
   let recSet1 = 'gladiators_finale';
   let recSet2 = 'noblesse_oblige';
   let sandsRec = ['atk_percent'];
@@ -249,7 +258,6 @@ for (const name of charNames) {
 
 console.log(`Generated ${characters.length} characters.`);
 
-// 出力書き込み
 fs.writeFileSync(
   path.join(__dirname, '../src/data/generatedArtifactSets.json'),
   JSON.stringify(artifactSets, null, 2)

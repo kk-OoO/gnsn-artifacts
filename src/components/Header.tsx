@@ -9,10 +9,11 @@ import {
   RotateCcw,
   Download,
   Upload,
+  Users,
 } from 'lucide-react';
 import { Artifact } from '@/types/genshin';
 
-export type ActiveTab = 'manage' | 'recommend' | 'equip';
+export type ActiveTab = 'manage' | 'recommend' | 'equip' | 'characters';
 
 interface HeaderProps {
   activeTab: ActiveTab;
@@ -21,6 +22,8 @@ interface HeaderProps {
   onLoadSamples?: () => void;
   artifacts: Artifact[];
   onImportData: (artifacts: Artifact[]) => void;
+  ownedCount?: number;
+  satisfiedCount?: number;
 }
 
 export function Header({
@@ -30,6 +33,8 @@ export function Header({
   onLoadSamples,
   artifacts,
   onImportData,
+  ownedCount,
+  satisfiedCount,
 }: HeaderProps) {
   // JSONエクスポート
   const handleExport = () => {
@@ -176,7 +181,7 @@ export function Header({
 
           <button
             onClick={() => onSelectTab('recommend')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition ${
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap ${
               activeTab === 'recommend'
                 ? 'bg-amber-400 text-slate-950 shadow-md shadow-amber-400/20'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
@@ -184,6 +189,29 @@ export function Header({
           >
             <BookOpen className="w-4 h-4" />
             <span>キャラ最適聖遺物ガイド</span>
+          </button>
+
+          <button
+            onClick={() => onSelectTab('characters')}
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap ${
+              activeTab === 'characters'
+                ? 'bg-amber-400 text-slate-950 shadow-md shadow-amber-400/20'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+            }`}
+          >
+            <Users className="w-4 h-4" />
+            <span>所持キャラ設定</span>
+            {ownedCount !== undefined && (
+              <span
+                className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                  activeTab === 'characters'
+                    ? 'bg-slate-950 text-amber-300'
+                    : 'bg-slate-800 text-slate-400'
+                }`}
+              >
+                {ownedCount}人
+              </span>
+            )}
           </button>
         </div>
       </div>

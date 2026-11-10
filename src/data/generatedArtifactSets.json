@@ -8,11 +8,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15044_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15044_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15044_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15044_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15044_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15044_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15044_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15044_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15044_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15044_3.png"
     }
   },
   "adventurer": {
@@ -21,11 +21,11 @@
     "piece2": "HP上限+1000。",
     "piece4": "宝箱を開けた後5秒間、HPの30%を徐々に回復する。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10010_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10010_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10010_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10010_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10010_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10010_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10010_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10010_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10010_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10010_3.png"
     }
   },
   "archaic_petra": {
@@ -37,11 +37,11 @@
       "geo_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15014_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15014_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15014_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15014_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15014_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15014_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15014_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15014_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15014_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15014_3.png"
     }
   },
   "aubade_of_morningstar_and_moon": {
@@ -53,11 +53,11 @@
       "elemental_mastery": 80
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15043_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15043_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15043_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15043_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15043_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15043_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15043_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15043_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15043_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15043_3.png"
     }
   },
   "berserker": {
@@ -66,11 +66,11 @@
     "piece2": "会心率+12%。",
     "piece4": "HPが70%以下になると、会心率+24%。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10005_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10005_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10005_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10005_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10005_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10005_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10005_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10005_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10005_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10005_3.png"
     }
   },
   "blizzard_strayer": {
@@ -82,11 +82,11 @@
       "cryo_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14001_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14001_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14001_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14001_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14001_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_14001_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_14001_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_14001_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_14001_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_14001_3.png"
     }
   },
   "bloodstained_chivalry": {
@@ -98,11 +98,11 @@
       "physical_dmg": 25
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15008_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15008_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15008_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15008_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15008_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15008_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15008_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15008_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15008_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15008_3.png"
     }
   },
   "brave_heart": {
@@ -114,11 +114,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10002_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10002_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10002_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10002_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10002_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10002_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10002_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10002_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10002_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10002_3.png"
     }
   },
   "celestial_gift": {
@@ -130,11 +130,11 @@
       "energy_recharge": 20
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15045_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15045_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15045_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15045_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15045_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15045_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15045_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15045_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15045_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15045_3.png"
     }
   },
   "crimson_witch_of_flames": {
@@ -146,11 +146,11 @@
       "pyro_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15006_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15006_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15006_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15006_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15006_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15006_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15006_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15006_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15006_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15006_3.png"
     }
   },
   "deepwood_memories": {
@@ -162,11 +162,11 @@
       "dendro_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15025_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15025_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15025_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15025_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15025_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15025_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15025_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15025_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15025_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15025_3.png"
     }
   },
   "defenders_will": {
@@ -178,11 +178,11 @@
       "def_percent": 30
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10003_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10003_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10003_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10003_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10003_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10003_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10003_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10003_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10003_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10003_3.png"
     }
   },
   "desert_pavilion_chronicle": {
@@ -194,11 +194,11 @@
       "anemo_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15027_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15027_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15027_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15027_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15027_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15027_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15027_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15027_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15027_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15027_3.png"
     }
   },
   "disenchantment_in_deep_shadow": {
@@ -210,11 +210,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15046_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15046_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15046_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15046_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15046_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15046_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15046_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15046_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15046_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15046_3.png"
     }
   },
   "echoes_of_an_offering": {
@@ -226,11 +226,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15024_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15024_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15024_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15024_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15024_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15024_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15024_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15024_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15024_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15024_3.png"
     }
   },
   "emblem_of_severed_fate": {
@@ -242,11 +242,11 @@
       "energy_recharge": 20
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15020_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15020_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15020_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15020_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15020_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15020_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15020_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15020_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15020_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15020_3.png"
     }
   },
   "finale_of_the_deep_galleries": {
@@ -258,11 +258,11 @@
       "cryo_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15040_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15040_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15040_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15040_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15040_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15040_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15040_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15040_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15040_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15040_3.png"
     }
   },
   "flower_of_paradise_lost": {
@@ -274,11 +274,11 @@
       "elemental_mastery": 80
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15028_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15028_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15028_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15028_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15028_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15028_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15028_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15028_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15028_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15028_3.png"
     }
   },
   "fragment_of_harmonic_whimsy": {
@@ -290,11 +290,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15035_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15035_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15035_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15035_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15035_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15035_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15035_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15035_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15035_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15035_3.png"
     }
   },
   "gambler": {
@@ -303,11 +303,11 @@
     "piece2": "元素スキルのダメージ+20%。",
     "piece4": "敵を倒した時、100%の確率で元素スキルのクールタイムをリセットする。15秒に1回のみ発動可能。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10008_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10008_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10008_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10008_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10008_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10008_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10008_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10008_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10008_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10008_3.png"
     }
   },
   "gilded_dreams": {
@@ -319,11 +319,11 @@
       "elemental_mastery": 80
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15026_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15026_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15026_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15026_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15026_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15026_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15026_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15026_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15026_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15026_3.png"
     }
   },
   "gladiators_finale": {
@@ -335,11 +335,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15001_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15001_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15001_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15001_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15001_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15001_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15001_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15001_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15001_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15001_3.png"
     }
   },
   "golden_troupe": {
@@ -348,11 +348,11 @@
     "piece2": "元素スキルのダメージ+20%。",
     "piece4": "元素スキルのダメージ+25%。また、装備者が待機中の時、元素スキルのダメージがさらに+25%。この効果は装備キャラクターが登場してから2秒後に解除される。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15032_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15032_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15032_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15032_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15032_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15032_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15032_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15032_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15032_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15032_3.png"
     }
   },
   "heart_of_depth": {
@@ -364,11 +364,11 @@
       "hydro_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15016_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15016_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15016_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15016_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15016_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15016_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15016_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15016_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15016_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15016_3.png"
     }
   },
   "heart_of_the_furnace": {
@@ -380,11 +380,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15048_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15048_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15048_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15048_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15048_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15048_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15048_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15048_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15048_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15048_3.png"
     }
   },
   "husk_of_opulent_dreams": {
@@ -396,11 +396,11 @@
       "def_percent": 30
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15021_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15021_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15021_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15021_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15021_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15021_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15021_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15021_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15021_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15021_3.png"
     }
   },
   "instructor": {
@@ -412,11 +412,11 @@
       "elemental_mastery": 80
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10007_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10007_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10007_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10007_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10007_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10007_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10007_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10007_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10007_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10007_3.png"
     }
   },
   "lavawalker": {
@@ -425,11 +425,11 @@
     "piece2": "炎元素耐性+40%。",
     "piece4": "炎元素の影響を受けた敵に対するダメージ+35%。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14003_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14003_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14003_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14003_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14003_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_14003_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_14003_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_14003_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_14003_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_14003_3.png"
     }
   },
   "long_nights_oath": {
@@ -438,11 +438,11 @@
     "piece2": "落下攻撃の与えるダメージ+25%。",
     "piece4": "装備者の落下攻撃/重撃/元素スキルが敵に命中した後、「永遠に輝く流光」効果を1/2/2層獲得する。落下攻撃、重撃、または元素スキルによるこの効果はそれぞれ1秒毎に1回のみ発動可能。「永遠に輝く流光」：落下攻撃ダメージ+15%、継続時間6秒、最大5層まで重ね掛け可能。継続時間は層ごとに独立してカウントされる。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15039_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15039_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15039_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15039_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15039_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15039_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15039_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15039_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15039_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15039_3.png"
     }
   },
   "lucky_dog": {
@@ -451,11 +451,11 @@
     "piece2": "防御力+100。",
     "piece4": "モラを拾得すると、HPを300回復する。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10011_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10011_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10011_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10011_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10011_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10011_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10011_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10011_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10011_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10011_3.png"
     }
   },
   "maiden_beloved": {
@@ -467,11 +467,11 @@
       "healing_bonus": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14004_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14004_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14004_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14004_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14004_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_14004_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_14004_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_14004_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_14004_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_14004_3.png"
     }
   },
   "marechaussee_hunter": {
@@ -480,11 +480,11 @@
     "piece2": "通常攻撃と重擊ダメージ+15%。",
     "piece4": "現在HPが増減する時、会心率+12%、継続時間5秒、最大3層まで重ね掛け可能。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15031_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15031_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15031_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15031_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15031_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15031_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15031_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15031_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15031_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15031_3.png"
     }
   },
   "martial_artist": {
@@ -493,11 +493,11 @@
     "piece2": "通常攻撃と重擊ダメージ+15%。",
     "piece4": "元素スキル発動後、通常攻撃と重撃ダメージ+25%、継続時間8秒。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10006_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10006_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10006_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10006_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10006_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10006_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10006_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10006_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10006_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10006_3.png"
     }
   },
   "night_of_the_skys_unveiling": {
@@ -509,11 +509,11 @@
       "elemental_mastery": 80
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15041_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15041_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15041_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15041_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15041_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15041_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15041_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15041_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15041_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15041_3.png"
     }
   },
   "nighttime_whispers_in_the_echoing_woods": {
@@ -525,11 +525,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15034_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15034_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15034_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15034_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15034_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15034_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15034_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15034_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15034_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15034_3.png"
     }
   },
   "noblesse_oblige": {
@@ -538,11 +538,11 @@
     "piece2": "元素爆発のダメージ+20%。",
     "piece4": "元素爆発を発動すると、チーム全員の攻撃力+20%、継続時間12秒、重ねがけ不可。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15007_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15007_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15007_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15007_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15007_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15007_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15007_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15007_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15007_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15007_3.png"
     }
   },
   "nymphs_dream": {
@@ -554,11 +554,11 @@
       "hydro_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15029_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15029_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15029_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15029_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15029_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15029_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15029_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15029_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15029_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15029_3.png"
     }
   },
   "obsidian_codex": {
@@ -567,11 +567,11 @@
     "piece2": "装備者が夜魂の加護状態にあり、かつフィールド上にいる時、与えるダメージ+15%。",
     "piece4": "装備者がフィールド上で夜魂値を1消費すると、会心率+40%、継続時間6秒。この効果は1秒毎に1回のみ発動可能。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15038_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15038_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15038_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15038_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15038_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15038_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15038_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15038_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15038_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15038_3.png"
     }
   },
   "ocean_hued_clam": {
@@ -583,11 +583,11 @@
       "healing_bonus": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15022_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15022_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15022_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15022_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15022_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15022_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15022_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15022_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15022_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15022_3.png"
     }
   },
   "pale_flame": {
@@ -599,11 +599,11 @@
       "physical_dmg": 25
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15018_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15018_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15018_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15018_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15018_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15018_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15018_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15018_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15018_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15018_3.png"
     }
   },
   "prayers_for_destiny": {
@@ -616,7 +616,7 @@
       "plume": "",
       "sands": "",
       "goblet": "",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15010_3.png"
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15010_3.png"
     }
   },
   "prayers_for_illumination": {
@@ -629,7 +629,7 @@
       "plume": "",
       "sands": "",
       "goblet": "",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15009_3.png"
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15009_3.png"
     }
   },
   "prayers_for_wisdom": {
@@ -642,7 +642,7 @@
       "plume": "",
       "sands": "",
       "goblet": "",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15011_3.png"
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15011_3.png"
     }
   },
   "prayers_to_springtime": {
@@ -655,7 +655,7 @@
       "plume": "",
       "sands": "",
       "goblet": "",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15013_3.png"
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15013_3.png"
     }
   },
   "resolution_of_sojourner": {
@@ -667,11 +667,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10001_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10001_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10001_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10001_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10001_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10001_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10001_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10001_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10001_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10001_3.png"
     }
   },
   "retracing_bolide": {
@@ -680,11 +680,11 @@
     "piece2": "シールド強化+35%",
     "piece4": "シールド状態の時、通常攻撃と重撃ダメージ+40%。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15015_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15015_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15015_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15015_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15015_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15015_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15015_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15015_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15015_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15015_3.png"
     }
   },
   "scarlet_proof": {
@@ -696,11 +696,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15047_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15047_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15047_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15047_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15047_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15047_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15047_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15047_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15047_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15047_3.png"
     }
   },
   "scholar": {
@@ -712,11 +712,11 @@
       "energy_recharge": 20
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10012_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10012_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10012_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10012_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10012_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10012_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10012_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10012_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10012_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10012_3.png"
     }
   },
   "scroll_of_the_hero_of_cinder_city": {
@@ -725,11 +725,11 @@
     "piece2": "付近にいるチーム内キャラクターが「夜魂バースト」を起こすと、装備者は元素エネルギーを6ポイント回復する。",
     "piece4": "装備者が自身の元素タイプの関連元素反応を起こした後、周囲のチーム全員の、該当元素反応の関連元素タイプのダメージ+12%、継続時間15秒。この効果を発動した時に、装備者が「夜魂の加護」状態にあった場合、周囲チーム全員の前述の元素タイプのダメージがさらに+28%、継続時間20秒。装備者が待機中でも、上記効果を発動できる。同名の聖遺物セットによるダメージアップ効果は重ね掛け不可。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15037_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15037_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15037_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15037_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15037_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15037_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15037_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15037_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15037_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15037_3.png"
     }
   },
   "shimenawas_reminiscence": {
@@ -741,11 +741,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15019_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15019_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15019_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15019_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15019_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15019_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15019_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15019_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15019_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15019_3.png"
     }
   },
   "silken_moons_serenade": {
@@ -757,11 +757,11 @@
       "energy_recharge": 20
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15042_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15042_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15042_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15042_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15042_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15042_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15042_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15042_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15042_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15042_3.png"
     }
   },
   "song_of_days_past": {
@@ -773,11 +773,11 @@
       "healing_bonus": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15033_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15033_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15033_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15033_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15033_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15033_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15033_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15033_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15033_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15033_3.png"
     }
   },
   "tenacity_of_the_millelith": {
@@ -789,11 +789,11 @@
       "hp_percent": 20
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15017_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15017_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15017_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15017_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15017_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15017_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15017_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15017_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15017_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15017_3.png"
     }
   },
   "the_exile": {
@@ -805,11 +805,11 @@
       "energy_recharge": 20
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10009_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10009_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10009_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10009_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10009_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10009_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10009_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10009_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10009_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10009_3.png"
     }
   },
   "thundering_fury": {
@@ -821,11 +821,11 @@
       "electro_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15005_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15005_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15005_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15005_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15005_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15005_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15005_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15005_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15005_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15005_3.png"
     }
   },
   "thundersoother": {
@@ -834,11 +834,11 @@
     "piece2": "雷元素耐性+40%。",
     "piece4": "雷元素の影響を受けた敵に対するダメージ+35%。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14002_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14002_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14002_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14002_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_14002_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_14002_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_14002_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_14002_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_14002_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_14002_3.png"
     }
   },
   "tiny_miracle": {
@@ -847,11 +847,11 @@
     "piece2": "全ての元素耐性+20%。",
     "piece4": "元素ダメージを受けると、その元素の耐性+30%、継続時間10秒。10秒毎に1回のみ発動可能。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10004_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10004_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10004_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10004_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10004_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10004_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10004_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10004_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10004_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10004_3.png"
     }
   },
   "traveling_doctor": {
@@ -860,11 +860,11 @@
     "piece2": "受ける治療効果+20%。",
     "piece4": "元素爆発を発動すると、HPを20%回復する。",
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10013_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10013_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10013_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10013_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_10013_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_10013_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_10013_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_10013_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_10013_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_10013_3.png"
     }
   },
   "unfinished_reverie": {
@@ -876,11 +876,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15036_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15036_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15036_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15036_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15036_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15036_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15036_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15036_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15036_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15036_3.png"
     }
   },
   "vermillion_hereafter": {
@@ -892,11 +892,11 @@
       "atk_percent": 18
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15023_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15023_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15023_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15023_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15023_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15023_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15023_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15023_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15023_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15023_3.png"
     }
   },
   "viridescent_venerer": {
@@ -908,11 +908,11 @@
       "anemo_dmg": 15
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15002_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15002_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15002_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15002_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15002_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15002_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15002_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15002_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15002_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15002_3.png"
     }
   },
   "vourukashas_glow": {
@@ -924,11 +924,11 @@
       "hp_percent": 20
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15030_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15030_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15030_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15030_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15030_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15030_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15030_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15030_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15030_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15030_3.png"
     }
   },
   "wanderers_troupe": {
@@ -940,11 +940,11 @@
       "elemental_mastery": 80
     },
     "images": {
-      "flower": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15003_4.png",
-      "plume": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15003_2.png",
-      "sands": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15003_5.png",
-      "goblet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15003_1.png",
-      "circlet": "https://upload-os-bbs.mihoyo.com/game_record/genshin/equip/UI_RelicIcon_15003_3.png"
+      "flower": "https://enka.network/ui/UI_RelicIcon_15003_4.png",
+      "plume": "https://enka.network/ui/UI_RelicIcon_15003_2.png",
+      "sands": "https://enka.network/ui/UI_RelicIcon_15003_5.png",
+      "goblet": "https://enka.network/ui/UI_RelicIcon_15003_1.png",
+      "circlet": "https://enka.network/ui/UI_RelicIcon_15003_3.png"
     }
   }
 }

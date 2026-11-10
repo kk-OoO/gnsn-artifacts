@@ -4,7 +4,6 @@ const genshindb = require('genshin-db');
 
 genshindb.setOptions({ queryLanguages: ['Japanese', 'English'], resultLanguage: 'Japanese' });
 
-// 先ほど生成した全キャラデータ
 const generatedChars = require('../src/data/generatedCharacters.json');
 
 // 詳細チューニング済み主要キャラクター
@@ -578,14 +577,18 @@ const manualDetailedChars = [
   },
 ];
 
-// マージ処理
 const allCharacters = [];
 const processedNames = new Set();
 
-// 1. まず詳細チューニング済みキャラを追加（公式画像URLを付加）
 for (const char of manualDetailedChars) {
   const dbChar = genshindb.characters(char.japaneseName);
-  const avatarUrl = dbChar?.images?.mihoyo_icon || dbChar?.images?.icon || '';
+  let avatarUrl = '';
+  if (dbChar?.images?.filename_icon) {
+    avatarUrl = `https://enka.network/ui/${dbChar.images.filename_icon}.png`;
+  } else if (dbChar?.images?.mihoyo_icon) {
+    avatarUrl = dbChar.images.mihoyo_icon;
+  }
+
   allCharacters.push({
     ...char,
     avatarUrl,
@@ -595,7 +598,6 @@ for (const char of manualDetailedChars) {
   processedNames.add(char.id);
 }
 
-// 2. 残りの全キャラクターを追加
 for (const char of generatedChars) {
   if (
     processedNames.has(char.japaneseName) ||
@@ -608,7 +610,7 @@ for (const char of generatedChars) {
   processedNames.add(char.japaneseName);
 }
 
-console.log(`Merged ${allCharacters.length} total characters!`);
+console.log(`Merged ${allCharacters.length} total characters with Enka CDN URLs!`);
 
 fs.writeFileSync(
   path.join(__dirname, '../src/data/allMergedCharacters.json'),

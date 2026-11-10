@@ -30,6 +30,10 @@ interface EquipSimulatorProps {
   onSelectCharacter: (id: string) => void;
   artifacts: Artifact[];
   onUpdateArtifacts: (artifacts: Artifact[]) => void;
+  satisfiedCharacterIds?: string[];
+  onToggleSatisfied?: (charId: string) => void;
+  ownedCharacterIds?: string[];
+  onlyOwnedFilter?: boolean;
 }
 
 const SLOTS: ArtifactSlot[] = ['flower', 'plume', 'sands', 'goblet', 'circlet'];
@@ -40,13 +44,30 @@ export function EquipSimulator({
   onSelectCharacter,
   artifacts,
   onUpdateArtifacts,
+  satisfiedCharacterIds = [],
+  onToggleSatisfied,
+  ownedCharacterIds = [],
+  onlyOwnedFilter = false,
 }: EquipSimulatorProps) {
+  // 表示候補キャラクター（所持フィルター適用時）
+  const selectableCharacters = useMemo(() => {
+    if (onlyOwnedFilter && ownedCharacterIds.length > 0) {
+      return characters.filter((c) => ownedCharacterIds.includes(c.id));
+    }
+    return characters;
+  }, [characters, onlyOwnedFilter, ownedCharacterIds]);
+
   // 現在選択中のキャラ
   const character = useMemo(() => {
     return (
-      characters.find((c) => c.id === selectedCharacterId) || characters[0]
+      selectableCharacters.find((c) => c.id === selectedCharacterId) ||
+      characters.find((c) => c.id === selectedCharacterId) ||
+      selectableCharacters[0] ||
+      characters[0]
     );
-  }, [characters, selectedCharacterId]);
+  }, [characters, selectableCharacters, selectedCharacterId]);
+
+  const isSatisfied = character ? satisfiedCharacterIds.includes(character.id) : false;
 
   // モーダルで変更するスロット
   const [slotToEquip, setSlotToEquip] = useState<ArtifactSlot | null>(null);
@@ -205,25 +226,55 @@ export function EquipSimulator({
             <div className="flex-1 sm:w-auto">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-xs text-slate-400 font-semibold">
-                  シミュレート対象キャラ ({characters.length}人対応):
+                  対象キャラ ({selectableCharacters.length}人表示中):
                 </span>
                 <span className="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300">
                   {character.role}
                 </span>
+                {isSatisfied && (
+                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40 flex items-center gap-1">
+                    <span>👑</span>
+                    <span>厳選満足</span>
+                  </span>
+                )}
               </div>
-              <div className="relative">
-                <select
-                  value={character.id}
-                  onChange={(e) => onSelectCharacter(e.target.value)}
-                  className="bg-slate-950 border border-slate-700 hover:border-amber-400 rounded-xl px-3 py-2 text-sm text-slate-100 font-bold focus:outline-none focus:border-amber-400 w-full sm:w-72 appearance-none pr-8 cursor-pointer"
-                >
-                  {characters.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {c.japaneseName} ({c.name}) - ★{c.rarity} {c.role}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown className="w-4 h-4 absolute right-3 top-3 text-slate-400 pointer-events-none" />
+              <div className="flex items-center gap-2">
+                <div className="relative flex-1 sm:w-72">
+                  <select
+                    value={character.id}
+                    onChange={(e) => onSelectCharacter(e.target.value)}
+                    className="bg-slate-950 border border-slate-700 hover:border-amber-400 rounded-xl px-3 py-2 text-sm text-slate-100 font-bold focus:outline-none focus:border-amber-400 w-full appearance-none pr-8 cursor-pointer"
+                  >
+                    {selectableCharacters.map((c) => (
+                      <option key={c.id} value={c.id}>
+                        {satisfiedCharacterIds.includes(c.id) ? '👑 ' : ''}
+                        {c.japaneseName} ({c.name}) - ★{c.rarity} {c.role}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="w-4 h-4 absolute right-3 top-3 text-slate-400 pointer-events-none" />
+                </div>
+
+                {/* 満足マークトグルボタン */}
+                {onToggleSatisfied && (
+                  <button
+                    type="button"
+                    onClick={() => onToggleSatisfied(character.id)}
+                    className={`px-3 py-2 rounded-xl text-xs font-bold transition border flex items-center gap-1.5 whitespace-nowrap ${
+                      isSatisfied
+                        ? 'bg-amber-400 text-slate-950 border-amber-400 shadow-md shadow-amber-400/20'
+                        : 'bg-slate-950 text-slate-400 hover:text-amber-300 border-slate-800'
+                    }`}
+                    title={
+                      isSatisfied
+                        ? '厳選満足マーク（クリックで解除）'
+                        : 'このキャラに満足・厳選完了マークをつける'
+                    }
+                  >
+                    <span>👑</span>
+                    <span>{isSatisfied ? '満足中' : '満足印'}</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
