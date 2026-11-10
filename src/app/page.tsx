@@ -4,16 +4,19 @@ import React, { useState, useEffect } from 'react';
 import { Artifact, Character } from '@/types/genshin';
 import { CHARACTERS } from '@/data/characters';
 import {
-  loadStoredArtifacts,
-  saveStoredArtifacts,
-  resetToEmptyData,
+  fetchArtifactsFromDb,
+  saveArtifactToDb,
+  bulkSaveArtifactsToDb,
+  deleteArtifactFromDb,
+  clearAllArtifactsFromDb,
+  fetchSettingsFromDb,
+  saveSettingToDb,
   loadPresetSamples,
+  loadStoredArtifacts,
   loadOwnedCharacterIds,
-  saveOwnedCharacterIds,
   loadSatisfiedCharacterIds,
-  saveSatisfiedCharacterIds,
   loadOnlyOwnedFilter,
-  saveOnlyOwnedFilter,
+  DbInfo,
 } from '@/utils/storage';
 import { Header, ActiveTab } from '@/components/Header';
 import { ArtifactList } from '@/components/ArtifactList';
@@ -35,42 +38,59 @@ export default function Home() {
     []
   );
   const [onlyOwnedFilter, setOnlyOwnedFilter] = useState<boolean>(false);
+  const [dbInfo, setDbInfo] = useState<DbInfo | null>(null);
 
   // モーダル管理
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingArtifact, setEditingArtifact] = useState<Artifact | null>(null);
 
-  // 初期ロード
+  // 初期ロード：DB（SQLiteファイル / 外部クラウド）から同期取得
   useEffect(() => {
-    // 聖遺物ロード（古いモックデータがあればクリア）
-    const raw =
-      typeof window !== 'undefined'
-        ? localStorage.getItem('genshin_artifacts_data_v1')
-        : null;
-    if (raw && raw.includes('art-mh-flower-1')) {
-      const empty = resetToEmptyData();
-      setArtifacts(empty);
-    } else {
-      const loaded = loadStoredArtifacts();
-      setArtifacts(loaded);
-    }
+    // 1. まずローカルキャッシュで即時レンダリング
+    const localArtifacts = loadStoredArtifacts();
+    setArtifacts(localArtifacts);
 
-    // 所持キャラ・満足キャラロード
     const allIds = CHARACTERS.map((c) => c.id);
-    const owned = loadOwnedCharacterIds(allIds);
-    setOwnedCharacterIds(owned);
+    const localOwned = loadOwnedCharacterIds(allIds);
+    setOwnedCharacterIds(localOwned);
 
-    const satisfied = loadSatisfiedCharacterIds();
-    setSatisfiedCharacterIds(satisfied);
+    const localSatisfied = loadSatisfiedCharacterIds();
+    setSatisfiedCharacterIds(localSatisfied);
 
-    const onlyOwned = loadOnlyOwnedFilter();
-    setOnlyOwnedFilter(onlyOwned);
+    const localFilter = loadOnlyOwnedFilter();
+    setOnlyOwnedFilter(localFilter);
+
+    // 2. サーバーDB（data/genshin.db または外部DB）から最新データを非同期取得
+    (async () => {
+      // 聖遺物データ取得
+      const dbArtifacts = await fetchArtifactsFromDb();
+      if (dbArtifacts !== null) {
+        setArtifacts(dbArtifacts);
+      }
+
+      // ユーザー設定取得
+      const settingsData = await fetchSettingsFromDb();
+      if (settingsData) {
+        if (settingsData.dbInfo) setDbInfo(settingsData.dbInfo);
+        const { settings } = settingsData;
+
+        if (Array.isArray(settings.ownedCharacters)) {
+          setOwnedCharacterIds(settings.ownedCharacters);
+        }
+        if (Array.isArray(settings.satisfiedCharacters)) {
+          setSatisfiedCharacterIds(settings.satisfiedCharacters);
+        }
+        if (typeof settings.onlyOwnedFilter === 'boolean') {
+          setOnlyOwnedFilter(settings.onlyOwnedFilter);
+        }
+      }
+    })();
   }, []);
 
-  // 聖遺物更新
+  // 聖遺物更新（一括付け替え等）
   const handleUpdateArtifacts = (newArtifacts: Artifact[]) => {
     setArtifacts(newArtifacts);
-    saveStoredArtifacts(newArtifacts);
+    bulkSaveArtifactsToDb(newArtifacts);
   };
 
   // 聖遺物の追加/編集保存
@@ -82,22 +102,24 @@ export default function Home() {
     } else {
       updated = [artifact, ...artifacts];
     }
-    handleUpdateArtifacts(updated);
+    setArtifacts(updated);
+    saveArtifactToDb(artifact);
   };
 
   // 聖遺物削除
   const handleDeleteArtifact = (id: string) => {
     const updated = artifacts.filter((a) => a.id !== id);
-    handleUpdateArtifacts(updated);
+    setArtifacts(updated);
+    deleteArtifactFromDb(id);
   };
 
-  // 聖遺物新規作成
+  // 聖遺物新規作成モーダル
   const handleAddNew = () => {
     setEditingArtifact(null);
     setIsModalOpen(true);
   };
 
-  // 聖遺物編集
+  // 聖遺物編集モーダル
   const handleEdit = (artifact: Artifact) => {
     setEditingArtifact(artifact);
     setIsModalOpen(true);
@@ -112,7 +134,7 @@ export default function Home() {
   // 所持キャラ更新
   const handleUpdateOwnedCharacters = (ids: string[]) => {
     setOwnedCharacterIds(ids);
-    saveOwnedCharacterIds(ids);
+    saveSettingToDb('ownedCharacters', ids);
   };
 
   // 満足・厳選完了キャラのトグル
@@ -124,30 +146,32 @@ export default function Home() {
       updated = [...satisfiedCharacterIds, charId];
     }
     setSatisfiedCharacterIds(updated);
-    saveSatisfiedCharacterIds(updated);
+    saveSettingToDb('satisfiedCharacters', updated);
   };
 
   // 「所持キャラのみ表示」トグル
   const handleToggleOnlyOwnedFilter = (enabled: boolean) => {
     setOnlyOwnedFilter(enabled);
-    saveOnlyOwnedFilter(enabled);
+    saveSettingToDb('onlyOwnedFilter', enabled);
   };
 
   // 全データクリア
   const handleResetData = () => {
-    const empty = resetToEmptyData();
-    setArtifacts(empty);
+    setArtifacts([]);
+    clearAllArtifactsFromDb();
   };
 
   // 任意でサンプルデータをロード
   const handleLoadSamples = () => {
     const samples = loadPresetSamples();
     setArtifacts(samples);
+    bulkSaveArtifactsToDb(samples);
   };
 
   // JSONインポート
   const handleImportData = (imported: Artifact[]) => {
-    handleUpdateArtifacts(imported);
+    setArtifacts(imported);
+    bulkSaveArtifactsToDb(imported);
   };
 
   return (
@@ -162,6 +186,7 @@ export default function Home() {
         onImportData={handleImportData}
         ownedCount={ownedCharacterIds.length}
         satisfiedCount={satisfiedCharacterIds.length}
+        dbInfo={dbInfo}
       />
 
       {/* メインコンテンツ */}

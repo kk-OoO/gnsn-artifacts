@@ -6,6 +6,135 @@ const OWNED_CHARACTERS_KEY = 'genshin_owned_characters_v2';
 const SATISFIED_CHARACTERS_KEY = 'genshin_satisfied_characters_v1';
 const ONLY_OWNED_FILTER_KEY = 'genshin_only_owned_filter_v1';
 
+/* ------------------------------------------------------------------
+   サーバーDB API 通信レイヤー (PC・スマホ間共通)
+------------------------------------------------------------------ */
+
+export interface DbInfo {
+  isExternal: boolean;
+  type: string;
+  serverIp: string;
+  mobileUrl: string;
+}
+
+// サーバーDBから聖遺物を全件取得
+export async function fetchArtifactsFromDb(): Promise<Artifact[] | null> {
+  try {
+    const res = await fetch('/api/artifacts');
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data.success && Array.isArray(data.artifacts)) {
+      // ローカルストレージにもキャッシュ保存
+      saveStoredArtifacts(data.artifacts);
+      return data.artifacts;
+    }
+    return null;
+  } catch (err) {
+    console.warn('Failed to fetch artifacts from DB API, using local cache:', err);
+    return null;
+  }
+}
+
+// サーバーDBへ聖遺物を1件保存
+export async function saveArtifactToDb(artifact: Artifact): Promise<boolean> {
+  try {
+    const res = await fetch('/api/artifacts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(artifact),
+    });
+    return res.ok;
+  } catch (err) {
+    console.warn('Failed to save artifact to DB:', err);
+    return false;
+  }
+}
+
+// サーバーDBへ聖遺物を一括保存（全置換・インポート・付け替え）
+export async function bulkSaveArtifactsToDb(artifacts: Artifact[]): Promise<boolean> {
+  // ローカルキャッシュ即時反映
+  saveStoredArtifacts(artifacts);
+  try {
+    const res = await fetch('/api/artifacts', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(artifacts),
+    });
+    return res.ok;
+  } catch (err) {
+    console.warn('Failed to bulk save artifacts to DB:', err);
+    return false;
+  }
+}
+
+// サーバーDBから聖遺物を削除
+export async function deleteArtifactFromDb(id: string): Promise<boolean> {
+  try {
+    const res = await fetch(`/api/artifacts?id=${encodeURIComponent(id)}`, {
+      method: 'DELETE',
+    });
+    return res.ok;
+  } catch (err) {
+    console.warn('Failed to delete artifact from DB:', err);
+    return false;
+  }
+}
+
+// サーバーDBの聖遺物を全クリア
+export async function clearAllArtifactsFromDb(): Promise<boolean> {
+  saveStoredArtifacts([]);
+  try {
+    const res = await fetch('/api/artifacts?all=true', {
+      method: 'DELETE',
+    });
+    return res.ok;
+  } catch (err) {
+    console.warn('Failed to clear artifacts in DB:', err);
+    return false;
+  }
+}
+
+// サーバーDBから設定情報を取得
+export async function fetchSettingsFromDb(): Promise<{
+  settings: Record<string, any>;
+  dbInfo: DbInfo;
+} | null> {
+  try {
+    const res = await fetch('/api/settings');
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data.success) {
+      return {
+        settings: data.settings || {},
+        dbInfo: data.dbInfo,
+      };
+    }
+    return null;
+  } catch (err) {
+    console.warn('Failed to fetch settings from DB API:', err);
+    return null;
+  }
+}
+
+// サーバーDBへ設定を保存
+export async function saveSettingToDb(key: string, value: any): Promise<boolean> {
+  try {
+    const res = await fetch('/api/settings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key, value }),
+    });
+    return res.ok;
+  } catch (err) {
+    console.warn('Failed to save setting to DB:', err);
+    return false;
+  }
+}
+
+/* ------------------------------------------------------------------
+   ローカルキャッシュ（フォールバック用）
+------------------------------------------------------------------ */
+
 export function loadStoredArtifacts(): Artifact[] {
   if (typeof window === 'undefined') return INITIAL_ARTIFACTS;
   try {
@@ -44,13 +173,11 @@ export function loadPresetSamples(): Artifact[] {
   return PRESET_SAMPLE_ARTIFACTS;
 }
 
-// 所持キャラクターIDリストの読み込み
 export function loadOwnedCharacterIds(allIds: string[] = []): string[] {
   if (typeof window === 'undefined') return allIds;
   try {
     const raw = localStorage.getItem(OWNED_CHARACTERS_KEY);
     if (!raw) {
-      // 初回は全キャラを所持状態として登録
       localStorage.setItem(OWNED_CHARACTERS_KEY, JSON.stringify(allIds));
       return allIds;
     }
@@ -69,7 +196,6 @@ export function saveOwnedCharacterIds(ids: string[]): void {
   }
 }
 
-// 満足・厳選完了したキャラクターIDリストの読み込み
 export function loadSatisfiedCharacterIds(): string[] {
   if (typeof window === 'undefined') return [];
   try {
@@ -90,12 +216,11 @@ export function saveSatisfiedCharacterIds(ids: string[]): void {
   }
 }
 
-// 「所持キャラのみ表示」設定フラグ
 export function loadOnlyOwnedFilter(): boolean {
   if (typeof window === 'undefined') return false;
   try {
     const raw = localStorage.getItem(ONLY_OWNED_FILTER_KEY);
-    if (raw === null) return true; // デフォルトは所持キャラのみ表示
+    if (raw === null) return true;
     return JSON.parse(raw);
   } catch {
     return false;
