@@ -1,19 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db, initDatabase, isExternalDb } from '@/lib/db';
-import os from 'os';
-
-// サーバーのローカルIPアドレス取得（スマホからアクセス用）
-function getLocalIpAddress(): string {
-  const interfaces = os.networkInterfaces();
-  for (const name of Object.keys(interfaces)) {
-    for (const iface of interfaces[name] || []) {
-      if (iface.family === 'IPv4' && !iface.internal) {
-        return iface.address;
-      }
-    }
-  }
-  return 'localhost';
-}
 
 // GET: 設定情報と接続ステータス取得
 export async function GET() {
@@ -30,16 +16,12 @@ export async function GET() {
       }
     }
 
-    const localIp = getLocalIpAddress();
-
     return NextResponse.json({
       success: true,
       settings,
       dbInfo: {
         isExternal: isExternalDb(),
-        type: isExternalDb() ? 'Turso Cloud' : 'SQLite File (data/genshin.db)',
-        serverIp: localIp,
-        mobileUrl: `http://${localIp}:3000`,
+        type: isExternalDb() ? 'Turso Cloud DB' : 'SQLite (Local)',
       },
     });
   } catch (err: any) {

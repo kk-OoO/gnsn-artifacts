@@ -10,11 +10,7 @@ import {
   Download,
   Upload,
   Users,
-  Smartphone,
   Database,
-  X,
-  Copy,
-  Check,
   MoreVertical,
 } from 'lucide-react';
 import { Artifact } from '@/types/genshin';
@@ -45,9 +41,7 @@ export function Header({
   satisfiedCount,
   dbInfo,
 }: HeaderProps) {
-  const [showMobileModal, setShowMobileModal] = useState(false);
   const [showMenuDropdown, setShowMenuDropdown] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   // JSONエクスポート
   const handleExport = () => {
@@ -89,14 +83,6 @@ export function Header({
     setShowMenuDropdown(false);
   };
 
-  const copyMobileUrl = () => {
-    if (dbInfo?.mobileUrl) {
-      navigator.clipboard.writeText(dbInfo.mobileUrl);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
-
   return (
     <>
       {/* トップヘッダー */}
@@ -114,14 +100,13 @@ export function Header({
                     原神 聖遺物マネージャー
                   </h1>
                   {dbInfo && (
-                    <button
-                      onClick={() => setShowMobileModal(true)}
-                      className="hidden sm:flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold hover:bg-emerald-500/20 transition flex-shrink-0"
-                      title="DB保存中"
+                    <span
+                      className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold flex-shrink-0"
+                      title={dbInfo.type}
                     >
                       <Database className="w-2.5 h-2.5" />
-                      <span>{dbInfo.isExternal ? 'Cloud' : 'SQLite'}</span>
-                    </button>
+                      <span>{dbInfo.isExternal ? 'Cloud DB' : 'Local DB'}</span>
+                    </span>
                   )}
                 </div>
                 <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium truncate hidden sm:block">
@@ -130,18 +115,8 @@ export function Header({
               </div>
             </div>
 
-            {/* 右側アクション：PCは全ボタン表示、スマホはコンパクトなアイコン＆ドロップダウン */}
+            {/* 右側アクション：PCは全ボタン表示、スマホはドロップダウン */}
             <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-              {/* スマホ連携ボタン */}
-              <button
-                onClick={() => setShowMobileModal(true)}
-                className="px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition flex items-center gap-1"
-                title="携帯（スマホ）からアクセスする方法"
-              >
-                <Smartphone className="w-3.5 h-3.5 text-amber-400" />
-                <span className="hidden sm:inline">携帯で使う</span>
-              </button>
-
               {/* PC用アクションボタン */}
               <div className="hidden sm:flex items-center gap-1.5">
                 <button
@@ -382,89 +357,6 @@ export function Header({
         </div>
       </nav>
 
-      {/* 携帯（スマホ）連携モーダル */}
-      {showMobileModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-lg p-5 sm:p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="p-1.5 bg-amber-500/20 text-amber-300 rounded-lg">
-                  <Smartphone className="w-5 h-5" />
-                </span>
-                <h3 className="text-base sm:text-lg font-bold text-slate-100">
-                  携帯（スマホ）から利用する方法
-                </h3>
-              </div>
-              <button
-                onClick={() => setShowMobileModal(false)}
-                className="p-1.5 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-slate-800 transition"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="space-y-4 text-xs sm:text-sm text-slate-300">
-              {/* 方法1: 同一Wi-Fi (ローカルSQLite) */}
-              <div className="p-3.5 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-amber-300 flex items-center gap-1.5">
-                    <span>📡</span>
-                    <span>方法1: 自宅の同じWi-Fiからアクセス</span>
-                  </span>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">
-                    即利用可
-                  </span>
-                </div>
-                <p className="text-xs text-slate-400">
-                  PCと同じWi-Fiにスマホを接続し、スマホのブラウザ（SafariやChrome）で以下のURLを開いてください。PCとスマホで同じデータベース（`data/genshin.db`）がリアルタイム共有されます！
-                </p>
-
-                {dbInfo?.mobileUrl && (
-                  <div className="flex items-center gap-2 mt-2 bg-slate-900 p-2.5 rounded-lg border border-slate-700">
-                    <span className="font-mono text-amber-300 font-bold flex-1 select-all break-all text-xs sm:text-sm">
-                      {dbInfo.mobileUrl}
-                    </span>
-                    <button
-                      onClick={copyMobileUrl}
-                      className="px-2.5 py-1 rounded bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1 flex-shrink-0 hover:bg-amber-300 transition"
-                    >
-                      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                      <span>{copied ? 'コピー済' : 'コピー'}</span>
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              {/* 方法2: 外部クラウドDB (Turso / Vercel等) */}
-              <div className="p-3.5 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
-                <span className="font-bold text-sky-300 flex items-center gap-1.5">
-                  <span>☁️</span>
-                  <span>方法2: 外出先からも使う（外部クラウドDB）</span>
-                </span>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  無料のクラウドDB（Tursoなど）を使う場合、`.env.local` に設定するだけで、外出先からスマホでアクセスしても完全同期されます：
-                </p>
-                <div className="bg-slate-900 p-2 rounded-lg font-mono text-[11px] text-slate-300 border border-slate-850 select-all">
-                  TURSO_DATABASE_URL=libsql://your-db.turso.io<br />
-                  TURSO_AUTH_TOKEN=your-token
-                </div>
-                <p className="text-[11px] text-slate-500">
-                  現在の保存先: <span className="text-slate-300 font-semibold">{dbInfo?.type || 'SQLite File'}</span>
-                </p>
-              </div>
-            </div>
-
-            <div className="flex justify-end pt-2">
-              <button
-                onClick={() => setShowMobileModal(false)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl transition"
-              >
-                閉じる
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

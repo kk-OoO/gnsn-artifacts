@@ -13,8 +13,6 @@ const ONLY_OWNED_FILTER_KEY = 'genshin_only_owned_filter_v1';
 export interface DbInfo {
   isExternal: boolean;
   type: string;
-  serverIp: string;
-  mobileUrl: string;
 }
 
 // サーバーDBから聖遺物を全件取得

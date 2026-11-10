@@ -3,14 +3,25 @@ import path from 'path';
 import fs from 'fs';
 
 // 外部クラウドDB（Tursoなど）またはローカルSQLiteファイル
-const dbUrl = process.env.TURSO_DATABASE_URL || `file:${path.join(process.cwd(), 'data', 'genshin.db')}`;
+// Vercelサーバーレス環境では /tmp/genshin.db、ローカル開発環境では data/genshin.db を利用
+const isVercel = !!process.env.VERCEL;
+const defaultDbPath = isVercel
+  ? path.join('/tmp', 'genshin.db')
+  : path.join(process.cwd(), 'data', 'genshin.db');
+
+const dbUrl =
+  process.env.TURSO_DATABASE_URL || `file:${defaultDbPath}`;
 const authToken = process.env.TURSO_AUTH_TOKEN;
 
-// data ディレクトリが存在しない場合は自動作成
+// data ディレクトリが存在しない場合は自動作成（Vercelの読込専用エラーを防止）
 if (!process.env.TURSO_DATABASE_URL) {
-  const dataDir = path.join(process.cwd(), 'data');
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+  try {
+    const dataDir = path.dirname(defaultDbPath);
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+  } catch (e) {
+    console.warn('Failed to ensure db directory:', e);
   }
 }
 
