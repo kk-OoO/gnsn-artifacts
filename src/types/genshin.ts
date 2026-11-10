@@ -4,6 +4,24 @@ export type ElementType = 'pyro' | 'hydro' | 'anemo' | 'electro' | 'dendro' | 'c
 
 export type WeaponType = 'sword' | 'claymore' | 'polearm' | 'bow' | 'catalyst';
 
+export type WeaponSubType =
+  | 'none'
+  | 'crit_damage'
+  | 'crit_rate'
+  | 'atk_percent'
+  | 'energy_recharge'
+  | 'elemental_mastery'
+  | 'hp_percent'
+  | 'def_percent'
+  | 'physical_dmg';
+
+export interface WeaponConfig {
+  name: string; // 武器名（自由入力またはプリセット名）
+  baseAtk: number; // 基礎攻撃力 (Lv90時: 例 510, 608, 674, 542, 454)
+  subStatType: WeaponSubType; // サブステータス種別
+  subStatValue: number; // サブステータス値 (Lv90時: 例 66.2, 33.1, 165)
+}
+
 export type MainStatType =
   | 'hp_flat' // 花固定
   | 'atk_flat' // 羽固定

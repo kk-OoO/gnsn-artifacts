@@ -5,6 +5,7 @@ import {
   StatGap,
   TargetStats,
   ArtifactSlot,
+  WeaponConfig,
 } from '@/types/genshin';
 import { ARTIFACT_SETS } from '@/data/artifactSets';
 
@@ -80,15 +81,16 @@ export function getActiveSetBonuses(artifacts: Artifact[]): ActiveSetBonus[] {
 }
 
 /**
- * キャラクターと装備聖遺物から合計ステータスを計算
+ * キャラクターと装備聖遺物、装備武器から合計ステータスを計算
  */
 export function calculateCharacterTotalStats(
   character: Character,
-  artifacts: Artifact[]
+  artifacts: Artifact[],
+  weapon?: WeaponConfig
 ): CalculatedStats {
   const base = character.baseStats;
-  // ★5Lv90武器の基礎攻撃力（約608）を加算した基礎攻撃力で計算
-  const weaponBaseAtk = 608;
+  // 武器の基礎攻撃力（未指定時は標準の608）を加算した基礎攻撃力で計算
+  const weaponBaseAtk = weapon && weapon.baseAtk > 0 ? weapon.baseAtk : 608;
   const totalBaseAtk = base.atk + weaponBaseAtk;
 
   let hpFlat = 0;
@@ -104,6 +106,33 @@ export function calculateCharacterTotalStats(
   let elementalDmg = base.elementalDmg;
   let healingBonus = 0;
   let totalCV = 0;
+
+  // 0. 装備武器のサブステータスを加算
+  if (weapon && weapon.subStatType && weapon.subStatValue > 0) {
+    switch (weapon.subStatType) {
+      case 'crit_rate':
+        critRate += weapon.subStatValue;
+        break;
+      case 'crit_damage':
+        critDamage += weapon.subStatValue;
+        break;
+      case 'atk_percent':
+        atkPercent += weapon.subStatValue;
+        break;
+      case 'energy_recharge':
+        energyRecharge += weapon.subStatValue;
+        break;
+      case 'elemental_mastery':
+        elementalMastery += weapon.subStatValue;
+        break;
+      case 'hp_percent':
+        hpPercent += weapon.subStatValue;
+        break;
+      case 'def_percent':
+        defPercent += weapon.subStatValue;
+        break;
+    }
+  }
 
   // 1. 聖遺物のメインステータスとサブステータスを加算
   for (const art of artifacts) {

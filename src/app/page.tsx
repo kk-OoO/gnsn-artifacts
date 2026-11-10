@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Artifact, Character } from '@/types/genshin';
+import { Artifact, Character, WeaponConfig } from '@/types/genshin';
 import { CHARACTERS } from '@/data/characters';
 import {
   fetchArtifactsFromDb,
@@ -16,6 +16,8 @@ import {
   loadOwnedCharacterIds,
   loadSatisfiedCharacterIds,
   loadOnlyOwnedFilter,
+  loadCharacterWeapons,
+  saveCharacterWeapons,
   DbInfo,
 } from '@/utils/storage';
 import { Header, ActiveTab } from '@/components/Header';
@@ -32,12 +34,15 @@ export default function Home() {
   const [selectedCharacterId, setSelectedCharacterId] =
     useState<string>('neuvillette');
 
-  // 所持キャラ & 満足キャラ状態
+  // 所持キャラ & 満足キャラ & 武器状態
   const [ownedCharacterIds, setOwnedCharacterIds] = useState<string[]>([]);
   const [satisfiedCharacterIds, setSatisfiedCharacterIds] = useState<string[]>(
     []
   );
   const [onlyOwnedFilter, setOnlyOwnedFilter] = useState<boolean>(false);
+  const [characterWeapons, setCharacterWeapons] = useState<
+    Record<string, WeaponConfig>
+  >({});
   const [dbInfo, setDbInfo] = useState<DbInfo | null>(null);
 
   // モーダル管理
@@ -59,6 +64,9 @@ export default function Home() {
 
     const localFilter = loadOnlyOwnedFilter();
     setOnlyOwnedFilter(localFilter);
+
+    const localWeapons = loadCharacterWeapons();
+    setCharacterWeapons(localWeapons);
 
     // 2. サーバーDB（data/genshin.db または外部DB）から最新データを非同期取得
     (async () => {
@@ -82,6 +90,9 @@ export default function Home() {
         }
         if (typeof settings.onlyOwnedFilter === 'boolean') {
           setOnlyOwnedFilter(settings.onlyOwnedFilter);
+        }
+        if (settings.characterWeapons && typeof settings.characterWeapons === 'object') {
+          setCharacterWeapons(settings.characterWeapons);
         }
       }
     })();
@@ -174,6 +185,17 @@ export default function Home() {
     bulkSaveArtifactsToDb(imported);
   };
 
+  // キャラクターの装備武器更新
+  const handleUpdateCharacterWeapon = (
+    charId: string,
+    weapon: WeaponConfig
+  ) => {
+    const updated = { ...characterWeapons, [charId]: weapon };
+    setCharacterWeapons(updated);
+    saveCharacterWeapons(updated);
+    saveSettingToDb('characterWeapons', updated);
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-400 selection:text-slate-950">
       {/* ナビゲーションヘッダー */}
@@ -202,6 +224,8 @@ export default function Home() {
             onToggleSatisfied={handleToggleSatisfied}
             ownedCharacterIds={ownedCharacterIds}
             onlyOwnedFilter={onlyOwnedFilter}
+            characterWeapons={characterWeapons}
+            onUpdateWeapon={handleUpdateCharacterWeapon}
           />
         )}
 

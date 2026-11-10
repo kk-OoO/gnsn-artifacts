@@ -1,10 +1,11 @@
-import { Artifact } from '@/types/genshin';
+import { Artifact, WeaponConfig } from '@/types/genshin';
 import { INITIAL_ARTIFACTS, PRESET_SAMPLE_ARTIFACTS } from '@/data/sampleData';
 
 const ARTIFACTS_KEY = 'genshin_artifacts_data_v1';
 const OWNED_CHARACTERS_KEY = 'genshin_owned_characters_v2';
 const SATISFIED_CHARACTERS_KEY = 'genshin_satisfied_characters_v1';
 const ONLY_OWNED_FILTER_KEY = 'genshin_only_owned_filter_v1';
+const CHARACTER_WEAPONS_KEY = 'genshin_character_weapons_v1';
 
 /* ------------------------------------------------------------------
    サーバーDB API 通信レイヤー (PC・スマホ間共通)
@@ -231,5 +232,25 @@ export function saveOnlyOwnedFilter(enabled: boolean): void {
     localStorage.setItem(ONLY_OWNED_FILTER_KEY, JSON.stringify(enabled));
   } catch (err) {
     console.error('Failed to save only owned filter', err);
+  }
+}
+
+export function loadCharacterWeapons(): Record<string, WeaponConfig> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = localStorage.getItem(CHARACTER_WEAPONS_KEY);
+    if (!raw) return {};
+    return JSON.parse(raw);
+  } catch {
+    return {};
+  }
+}
+
+export function saveCharacterWeapons(weapons: Record<string, WeaponConfig>): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(CHARACTER_WEAPONS_KEY, JSON.stringify(weapons));
+  } catch (err) {
+    console.error('Failed to save character weapons', err);
   }
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Character, Artifact, ArtifactSlot } from '@/types/genshin';
+import { Character, Artifact, ArtifactSlot, WeaponConfig } from '@/types/genshin';
 import {
   ARTIFACT_SETS,
   ARTIFACT_SLOT_NAMES,
@@ -12,6 +12,8 @@ import {
   analyzeStatGaps,
   getActiveSetBonuses,
 } from '@/utils/artifactCalculator';
+import { getDefaultWeaponForCharacter, WEAPON_SUBSTAT_NAMES } from '@/data/weapons';
+import { WeaponConfigModal } from './WeaponConfigModal';
 import { recommendBestArtifactSet } from '@/utils/autoEquip';
 import { ArtifactCard } from './ArtifactCard';
 import { StatGapAnalysis } from './StatGapAnalysis';
@@ -22,6 +24,8 @@ import {
   Sparkles,
   ArrowRightLeft,
   ChevronDown,
+  Sword,
+  Settings,
 } from 'lucide-react';
 
 interface EquipSimulatorProps {
@@ -34,6 +38,8 @@ interface EquipSimulatorProps {
   onToggleSatisfied?: (charId: string) => void;
   ownedCharacterIds?: string[];
   onlyOwnedFilter?: boolean;
+  characterWeapons?: Record<string, WeaponConfig>;
+  onUpdateWeapon?: (charId: string, weapon: WeaponConfig) => void;
 }
 
 const SLOTS: ArtifactSlot[] = ['flower', 'plume', 'sands', 'goblet', 'circlet'];
@@ -48,6 +54,8 @@ export function EquipSimulator({
   onToggleSatisfied,
   ownedCharacterIds = [],
   onlyOwnedFilter = false,
+  characterWeapons = {},
+  onUpdateWeapon,
 }: EquipSimulatorProps) {
   // 表示候補キャラクター（所持フィルター適用時）
   const selectableCharacters = useMemo(() => {
@@ -71,7 +79,17 @@ export function EquipSimulator({
 
   // モーダルで変更するスロット
   const [slotToEquip, setSlotToEquip] = useState<ArtifactSlot | null>(null);
+  const [isWeaponModalOpen, setIsWeaponModalOpen] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
+
+  // 現在選択中のキャラの装備武器
+  const currentWeapon = useMemo(() => {
+    if (!character) return undefined;
+    if (characterWeapons && characterWeapons[character.id]) {
+      return characterWeapons[character.id];
+    }
+    return getDefaultWeaponForCharacter(character.weapon);
+  }, [character, characterWeapons]);
 
   // キャラクターに現在装備されている聖遺物（5部位）
   const equippedArtifacts = useMemo(() => {
@@ -93,7 +111,7 @@ export function EquipSimulator({
     return map;
   }, [equippedArtifacts]);
 
-  // 最終ステータス計算
+  // 最終ステータス計算（武器の基礎攻撃力とサブステータスを反映）
   const calculatedStats = useMemo(() => {
     if (!character) {
       return {
@@ -109,8 +127,8 @@ export function EquipSimulator({
         cv: 0,
       };
     }
-    return calculateCharacterTotalStats(character, equippedArtifacts);
-  }, [character, equippedArtifacts]);
+    return calculateCharacterTotalStats(character, equippedArtifacts, currentWeapon);
+  }, [character, equippedArtifacts, currentWeapon]);
 
   // ギャップ分析 & アドバイス
   const gapAnalysis = useMemo(() => {
@@ -323,6 +341,48 @@ export function EquipSimulator({
         </div>
       </div>
 
+      {/* 装備武器ステータス設定パネル */}
+      {currentWeapon && (
+        <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0 shadow-sm">
+              <Sword className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                  装備武器
+                </span>
+                <span className="text-xs sm:text-sm font-bold text-slate-100">
+                  {currentWeapon.name}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 mt-0.5 text-xs text-slate-300 flex-wrap">
+                <span className="text-amber-300 font-mono font-bold">
+                  基礎ATK: {currentWeapon.baseAtk}
+                </span>
+                {currentWeapon.subStatType !== 'none' && currentWeapon.subStatValue > 0 && (
+                  <>
+                    <span className="text-slate-600">/</span>
+                    <span className="text-sky-300 font-medium">
+                      {WEAPON_SUBSTAT_NAMES[currentWeapon.subStatType]?.label}: {currentWeapon.subStatValue}
+                      {WEAPON_SUBSTAT_NAMES[currentWeapon.subStatType]?.unit}
+                    </span>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={() => setIsWeaponModalOpen(true)}
+            className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-950 hover:bg-slate-800 text-amber-300 border border-amber-500/30 hover:border-amber-400 rounded-xl text-xs font-bold transition shadow-sm w-full sm:w-auto justify-center"
+          >
+            <Settings className="w-3.5 h-3.5 text-amber-400" />
+            <span>武器・ステータスを変更</span>
+          </button>
+        </div>
+      )}
+
       {/* 5部位の聖遺物装備スロットグリッド (スマホは2列で見やすく、PCは5列) */}
       <div>
         <div className="flex items-center justify-between mb-2 sm:mb-3">
@@ -482,6 +542,21 @@ export function EquipSimulator({
           onSelect={handleEquip}
           onClose={() => setSlotToEquip(null)}
           characters={characters}
+        />
+      )}
+
+      {/* 武器ステータス設定モーダル */}
+      {isWeaponModalOpen && character && (
+        <WeaponConfigModal
+          isOpen={isWeaponModalOpen}
+          onClose={() => setIsWeaponModalOpen(false)}
+          character={character}
+          currentWeapon={currentWeapon}
+          onSaveWeapon={(weapon) => {
+            if (onUpdateWeapon) {
+              onUpdateWeapon(character.id, weapon);
+            }
+          }}
         />
       )}
     </div>
