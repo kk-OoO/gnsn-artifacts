@@ -18,6 +18,7 @@ interface HeaderProps {
   activeTab: ActiveTab;
   onSelectTab: (tab: ActiveTab) => void;
   onResetData: () => void;
+  onLoadSamples?: () => void;
   artifacts: Artifact[];
   onImportData: (artifacts: Artifact[]) => void;
 }
@@ -26,6 +27,7 @@ export function Header({
   activeTab,
   onSelectTab,
   onResetData,
+  onLoadSamples,
   artifacts,
   onImportData,
 }: HeaderProps) {
@@ -111,17 +113,28 @@ export function Header({
               />
             </label>
 
+            {onLoadSamples && artifacts.length === 0 && (
+              <button
+                onClick={onLoadSamples}
+                className="p-2 sm:px-2.5 sm:py-1.5 rounded-lg text-xs text-amber-300 hover:bg-amber-500/10 border border-amber-500/30 transition flex items-center gap-1.5"
+                title="テスト用のサンプル聖遺物を読み込む"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span className="hidden sm:inline">サンプル読込</span>
+              </button>
+            )}
+
             <button
               onClick={() => {
-                if (confirm('初期サンプルデータにリセットしますか？')) {
+                if (confirm('聖遺物データをすべてクリア（削除）しますか？')) {
                   onResetData();
                 }
               }}
-              className="p-2 sm:px-2.5 sm:py-1.5 rounded-lg text-xs text-slate-400 hover:text-amber-300 hover:bg-slate-900 border border-slate-800 transition flex items-center gap-1.5"
-              title="初期サンプルデータにリセット"
+              className="p-2 sm:px-2.5 sm:py-1.5 rounded-lg text-xs text-slate-400 hover:text-rose-400 hover:bg-slate-900 border border-slate-800 transition flex items-center gap-1.5"
+              title="聖遺物データをすべて削除"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">リセット</span>
+              <span className="hidden sm:inline">全クリア</span>
             </button>
           </div>
         </div>

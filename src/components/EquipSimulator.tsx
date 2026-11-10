@@ -1,11 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import {
-  Character,
-  Artifact,
-  ArtifactSlot,
-} from '@/types/genshin';
+import { Character, Artifact, ArtifactSlot } from '@/types/genshin';
 import {
   ARTIFACT_SETS,
   ARTIFACT_SLOT_NAMES,
@@ -23,10 +19,9 @@ import {
   Wand2,
   X,
   Plus,
-  Shield,
   Sparkles,
   ArrowRightLeft,
-  Info,
+  ChevronDown,
 } from 'lucide-react';
 
 interface EquipSimulatorProps {
@@ -55,6 +50,7 @@ export function EquipSimulator({
 
   // モーダルで変更するスロット
   const [slotToEquip, setSlotToEquip] = useState<ArtifactSlot | null>(null);
+  const [avatarError, setAvatarError] = useState(false);
 
   // キャラクターに現在装備されている聖遺物（5部位）
   const equippedArtifacts = useMemo(() => {
@@ -147,12 +143,10 @@ export function EquipSimulator({
   const handleAutoEquip = () => {
     const best = recommendBestArtifactSet(character, artifacts, true);
     const updated = artifacts.map((art) => {
-      // 一旦このキャラの装備をリセット
       let equipToThis = art.equippedToCharacterId;
       if (equipToThis === character.id) {
         equipToThis = undefined;
       }
-      // ベストセットに含まれていれば装備
       for (const slot of SLOTS) {
         if (best[slot] && best[slot]?.id === art.id) {
           equipToThis = character.id;
@@ -183,29 +177,62 @@ export function EquipSimulator({
       {/* キャラクター選択＆アクションヘッダー */}
       <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
-          {/* キャラクターセレクター */}
-          <div className="flex items-center gap-3 w-full lg:w-auto">
-            <label className="text-xs font-semibold text-slate-400 whitespace-nowrap">
-              シミュレート対象キャラ:
-            </label>
-            <select
-              value={character.id}
-              onChange={(e) => onSelectCharacter(e.target.value)}
-              className="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-100 font-bold focus:outline-none focus:border-amber-400 w-full sm:w-64"
+          {/* キャラクター情報 & セレクター */}
+          <div className="flex items-center gap-3.5 w-full lg:w-auto">
+            {/* キャラクター公式アバター写真 */}
+            <div
+              className={`relative w-14 h-14 rounded-2xl overflow-hidden border-2 flex items-center justify-center flex-shrink-0 shadow-lg ${
+                character.rarity === 5
+                  ? 'border-amber-400/80 bg-gradient-to-tr from-amber-900/80 to-amber-700/40 shadow-amber-500/20'
+                  : 'border-purple-400/80 bg-gradient-to-tr from-purple-900/80 to-purple-700/40 shadow-purple-500/20'
+              }`}
             >
-              {characters.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.japaneseName} ({c.name}) - {c.role}
-                </option>
-              ))}
-            </select>
+              {character.avatarUrl && !avatarError ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={character.avatarUrl}
+                  alt={character.japaneseName}
+                  onError={() => setAvatarError(true)}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span className="text-xl font-black text-amber-300">
+                  {character.japaneseName.slice(0, 1)}
+                </span>
+              )}
+            </div>
+
+            <div className="flex-1 sm:w-auto">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs text-slate-400 font-semibold">
+                  シミュレート対象キャラ ({characters.length}人対応):
+                </span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300">
+                  {character.role}
+                </span>
+              </div>
+              <div className="relative">
+                <select
+                  value={character.id}
+                  onChange={(e) => onSelectCharacter(e.target.value)}
+                  className="bg-slate-950 border border-slate-700 hover:border-amber-400 rounded-xl px-3 py-2 text-sm text-slate-100 font-bold focus:outline-none focus:border-amber-400 w-full sm:w-72 appearance-none pr-8 cursor-pointer"
+                >
+                  {characters.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.japaneseName} ({c.name}) - ★{c.rarity} {c.role}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="w-4 h-4 absolute right-3 top-3 text-slate-400 pointer-events-none" />
+              </div>
+            </div>
           </div>
 
           {/* 自動装備 & 全解除ボタン */}
           <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
             <button
               onClick={handleAutoEquip}
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-bold rounded-xl text-xs shadow-lg shadow-amber-500/20 transition whitespace-nowrap"
+              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-bold rounded-xl text-xs shadow-lg shadow-amber-500/20 transition whitespace-nowrap"
               title="推奨メインステータスとサブステ優先度から最適な聖遺物を自動選定して装備します"
             >
               <Wand2 className="w-4 h-4" />
@@ -215,7 +242,7 @@ export function EquipSimulator({
             {equippedArtifacts.length > 0 && (
               <button
                 onClick={handleClearAll}
-                className="px-3 py-2 bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800 rounded-xl text-xs font-medium transition"
+                className="px-3 py-2.5 bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800 rounded-xl text-xs font-medium transition"
               >
                 全解除
               </button>
@@ -313,14 +340,14 @@ export function EquipSimulator({
                     onClick={() => setSlotToEquip(slot)}
                     className="flex-1 min-h-[180px] rounded-xl border border-dashed border-slate-800 hover:border-amber-400/50 hover:bg-slate-950/60 transition cursor-pointer flex flex-col items-center justify-center p-4 text-center group"
                   >
-                    <div className="w-10 h-10 rounded-full bg-slate-800/80 group-hover:bg-amber-500/20 flex items-center justify-center text-slate-400 group-hover:text-amber-300 transition mb-2">
+                    <div className="w-12 h-12 rounded-xl bg-slate-800/80 group-hover:bg-amber-500/20 flex items-center justify-center text-slate-400 group-hover:text-amber-300 transition mb-2">
                       <Plus className="w-5 h-5" />
                     </div>
                     <span className="text-xs font-bold text-slate-300 group-hover:text-amber-300 transition">
                       聖遺物を装備
                     </span>
                     {recMain.length > 0 && (
-                      <span className="text-[10px] text-slate-500 mt-1">
+                      <span className="text-[10px] text-slate-500 mt-1 max-w-[140px] truncate">
                         推奨: {recMain.map((m) => STAT_DISPLAY_NAMES[m]?.label || m).join('/')}
                       </span>
                     )}

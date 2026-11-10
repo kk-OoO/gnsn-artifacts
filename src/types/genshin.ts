@@ -65,6 +65,13 @@ export interface ArtifactSet {
   piece4: string;
   piece2Stats?: Partial<Record<MainStatType, number>>;
   icon?: string;
+  images?: {
+    flower?: string;
+    plume?: string;
+    sands?: string;
+    goblet?: string;
+    circlet?: string;
+  };
 }
 
 export interface StatTarget {

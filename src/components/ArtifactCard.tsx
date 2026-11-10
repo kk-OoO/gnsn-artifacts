@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Artifact, Character } from '@/types/genshin';
 import {
   ARTIFACT_SETS,
@@ -8,7 +8,7 @@ import {
   STAT_DISPLAY_NAMES,
 } from '@/data/artifactSets';
 import { calculateSubStatCV } from '@/utils/artifactCalculator';
-import { Edit2, Trash2, CheckCircle, Shield } from 'lucide-react';
+import { Edit2, Trash2, Shield } from 'lucide-react';
 
 interface ArtifactCardProps {
   artifact: Artifact;
@@ -17,8 +17,6 @@ interface ArtifactCardProps {
   onDelete?: (id: string) => void;
   onSelect?: (artifact: Artifact) => void;
   isSelected?: boolean;
-  showEquipAction?: boolean;
-  onEquipToggle?: (artifact: Artifact) => void;
 }
 
 export function ArtifactCard({
@@ -28,8 +26,6 @@ export function ArtifactCard({
   onDelete,
   onSelect,
   isSelected = false,
-  showEquipAction = false,
-  onEquipToggle,
 }: ArtifactCardProps) {
   const setInfo = ARTIFACT_SETS[artifact.setId];
   const slotInfo = ARTIFACT_SLOT_NAMES[artifact.slot] || {
@@ -42,10 +38,15 @@ export function ArtifactCard({
   };
   const subCV = calculateSubStatCV(artifact);
 
+  // 聖遺物の部位画像URL
+  const slotImageUrl = setInfo?.images?.[artifact.slot];
+  const [imageError, setImageError] = useState(false);
+
   // 装備中キャラクター
   const equippedChar = characters.find(
     (c) => c.id === artifact.equippedToCharacterId
   );
+  const [avatarError, setAvatarError] = useState(false);
 
   const getCvBadgeColor = (cv: number) => {
     if (cv >= 40) return 'bg-amber-500/20 text-amber-300 border-amber-500/40';
@@ -72,16 +73,33 @@ export function ArtifactCard({
         }`}
       >
         <div className="flex items-start justify-between gap-2">
-          <div>
-            <div className="flex items-center gap-1.5 text-xs text-amber-200/90 font-medium">
-              <span className="text-sm">{slotInfo.icon}</span>
-              <span>{slotInfo.ja}</span>
-              <span className="text-[10px] px-1 rounded bg-slate-800/80 text-amber-300 font-mono font-bold">
-                +{artifact.level}
-              </span>
+          <div className="flex items-center gap-2.5">
+            {/* 聖遺物部位の画像 */}
+            <div className="relative w-11 h-11 rounded-lg bg-slate-950/80 border border-slate-700/60 flex items-center justify-center overflow-hidden flex-shrink-0 shadow-inner">
+              {slotImageUrl && !imageError ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={slotImageUrl}
+                  alt={slotInfo.ja}
+                  loading="lazy"
+                  onError={() => setImageError(true)}
+                  className="w-full h-full object-contain p-0.5 group-hover:scale-110 transition duration-300"
+                />
+              ) : (
+                <span className="text-xl">{slotInfo.icon}</span>
+              )}
             </div>
-            <div className="font-bold text-slate-100 text-sm mt-0.5 truncate max-w-[170px]">
-              {setInfo?.name || artifact.setId}
+
+            <div>
+              <div className="flex items-center gap-1.5 text-xs text-amber-200/90 font-medium">
+                <span>{slotInfo.ja}</span>
+                <span className="text-[10px] px-1 rounded bg-slate-800/80 text-amber-300 font-mono font-bold">
+                  +{artifact.level}
+                </span>
+              </div>
+              <div className="font-bold text-slate-100 text-xs mt-0.5 truncate max-w-[140px]">
+                {setInfo?.name || artifact.setId}
+              </div>
             </div>
           </div>
 
@@ -97,9 +115,9 @@ export function ArtifactCard({
         </div>
 
         {/* メインステータス */}
-        <div className="mt-3 flex items-baseline justify-between">
+        <div className="mt-2.5 flex items-baseline justify-between pt-1 border-t border-slate-800/40">
           <span className="text-xs text-slate-400">{mainStatInfo.label}</span>
-          <span className="text-lg font-black text-amber-300">
+          <span className="text-base font-black text-amber-300 font-mono">
             {artifact.mainStat.value}
             {mainStatInfo.unit}
           </span>
@@ -128,7 +146,11 @@ export function ArtifactCard({
                 <span className="text-[10px] text-slate-500">•</span>
                 <span className="truncate max-w-[120px]">{subInfo.label}</span>
               </span>
-              <span className={`font-mono font-semibold ${isCrit ? 'text-amber-300' : 'text-slate-300'}`}>
+              <span
+                className={`font-mono font-semibold ${
+                  isCrit ? 'text-amber-300' : 'text-slate-300'
+                }`}
+              >
                 +{sub.value}
                 {subInfo.unit}
               </span>
@@ -140,8 +162,19 @@ export function ArtifactCard({
       {/* フッター：装備状況 & アクションボタン */}
       <div className="px-3 py-2 bg-slate-950/70 border-t border-slate-800/80 flex items-center justify-between gap-2 text-xs">
         {equippedChar ? (
-          <div className="flex items-center gap-1.5 text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 truncate max-w-[150px]">
-            <Shield className="w-3 h-3 flex-shrink-0" />
+          <div className="flex items-center gap-1.5 text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 truncate max-w-[160px]">
+            {equippedChar.avatarUrl && !avatarError ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={equippedChar.avatarUrl}
+                alt={equippedChar.japaneseName}
+                loading="lazy"
+                onError={() => setAvatarError(true)}
+                className="w-4 h-4 rounded-full object-cover flex-shrink-0"
+              />
+            ) : (
+              <Shield className="w-3 h-3 flex-shrink-0" />
+            )}
             <span className="truncate">{equippedChar.japaneseName} 装備中</span>
           </div>
         ) : (

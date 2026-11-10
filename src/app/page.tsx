@@ -6,7 +6,8 @@ import { CHARACTERS } from '@/data/characters';
 import {
   loadStoredArtifacts,
   saveStoredArtifacts,
-  resetToSampleData,
+  resetToEmptyData,
+  loadPresetSamples,
 } from '@/utils/storage';
 import { Header, ActiveTab } from '@/components/Header';
 import { ArtifactList } from '@/components/ArtifactList';
@@ -27,8 +28,16 @@ export default function Home() {
 
   // 初期ロード
   useEffect(() => {
-    const loaded = loadStoredArtifacts();
-    setArtifacts(loaded);
+    // ユーザーからの「仮データは消してくれていい」リクエストに応じ、
+    // 過去の古いモックデータ（art-mh-等）がlocalStorageにある場合はリセット
+    const raw = typeof window !== 'undefined' ? localStorage.getItem('genshin_artifacts_data_v1') : null;
+    if (raw && raw.includes('art-mh-flower-1')) {
+      const empty = resetToEmptyData();
+      setArtifacts(empty);
+    } else {
+      const loaded = loadStoredArtifacts();
+      setArtifacts(loaded);
+    }
   }, []);
 
   // 聖遺物更新
@@ -73,10 +82,16 @@ export default function Home() {
     setActiveTab('equip');
   };
 
-  // データリセット
+  // 全データクリア
   const handleResetData = () => {
-    const sample = resetToSampleData();
-    setArtifacts(sample);
+    const empty = resetToEmptyData();
+    setArtifacts(empty);
+  };
+
+  // 任意でサンプルデータをロード
+  const handleLoadSamples = () => {
+    const samples = loadPresetSamples();
+    setArtifacts(samples);
   };
 
   // JSONインポート
@@ -91,6 +106,7 @@ export default function Home() {
         activeTab={activeTab}
         onSelectTab={setActiveTab}
         onResetData={handleResetData}
+        onLoadSamples={handleLoadSamples}
         artifacts={artifacts}
         onImportData={handleImportData}
       />

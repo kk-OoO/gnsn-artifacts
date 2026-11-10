@@ -5,8 +5,6 @@ import { Character, ElementType } from '@/types/genshin';
 import { ARTIFACT_SETS, STAT_DISPLAY_NAMES } from '@/data/artifactSets';
 import {
   Sparkles,
-  Shield,
-  Sword,
   Search,
   ExternalLink,
   ChevronDown,
@@ -66,11 +64,12 @@ export function CharacterRecommendList({
                   : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
               }`}
             >
-              全元素
+              全元素 ({characters.length})
             </button>
             {(Object.keys(ELEMENT_INFO) as ElementType[]).map((el) => {
               const info = ELEMENT_INFO[el];
               const active = selectedElement === el;
+              const count = characters.filter((c) => c.element === el).length;
               return (
                 <button
                   key={el}
@@ -81,7 +80,7 @@ export function CharacterRecommendList({
                       : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
                   }`}
                 >
-                  {info.ja}
+                  {info.ja} ({count})
                 </button>
               );
             })}
@@ -92,7 +91,7 @@ export function CharacterRecommendList({
             <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-500" />
             <input
               type="text"
-              placeholder="キャラ名で検索..."
+              placeholder="キャラ名で検索 (全126人)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-3 py-1.5 bg-slate-950 border border-slate-700/80 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400"
@@ -102,11 +101,12 @@ export function CharacterRecommendList({
       </div>
 
       {/* キャラクター推奨ガイドカード一覧 */}
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-3.5">
         {filteredCharacters.map((char) => {
-          const elInfo = ELEMENT_INFO[char.element];
+          const elInfo = ELEMENT_INFO[char.element] || ELEMENT_INFO.anemo;
           const isExpanded = expandedCharId === char.id;
           const rec = char.recommendedBuild;
+          const bestSet = ARTIFACT_SETS[rec.recommendedSets[0]?.setId];
 
           return (
             <div
@@ -116,19 +116,35 @@ export function CharacterRecommendList({
               {/* カードヘッダー */}
               <div
                 onClick={() => toggleExpand(char.id)}
-                className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 cursor-pointer hover:bg-slate-850/50 transition"
+                className="p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 cursor-pointer hover:bg-slate-850/50 transition"
               >
-                <div className="flex items-center gap-3.5">
-                  {/* アバター風アイコンバッジ */}
+                <div className="flex items-center gap-3">
+                  {/* アバター写真 */}
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center font-black text-lg border ${elInfo.bg} ${elInfo.border} ${elInfo.color} shadow-inner`}
+                    className={`relative w-12 h-12 rounded-xl overflow-hidden border-2 flex items-center justify-center flex-shrink-0 shadow-md ${
+                      char.rarity === 5
+                        ? 'border-amber-400/80 bg-gradient-to-tr from-amber-900/80 to-amber-700/40'
+                        : 'border-purple-400/80 bg-gradient-to-tr from-purple-900/80 to-purple-700/40'
+                    }`}
                   >
-                    {char.japaneseName.slice(0, 1)}
+                    {char.avatarUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={char.avatarUrl}
+                        alt={char.japaneseName}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="font-black text-amber-300">
+                        {char.japaneseName.slice(0, 1)}
+                      </span>
+                    )}
                   </div>
 
                   <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-base font-bold text-slate-100">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-sm sm:text-base font-bold text-slate-100">
                         {char.japaneseName}
                       </h3>
                       <span className="text-xs text-slate-400 font-normal">
@@ -145,17 +161,16 @@ export function CharacterRecommendList({
                     </div>
 
                     {/* 最適聖遺物セットの要約 */}
-                    <div className="flex items-center gap-2 mt-1.5 text-xs text-slate-400">
+                    <div className="flex items-center gap-2 mt-1 text-xs text-slate-400">
                       <span className="text-amber-400 font-semibold flex items-center gap-1">
                         <Sparkles className="w-3.5 h-3.5" />
                         おすすめセット:
                       </span>
                       <span className="text-slate-200 font-medium">
-                        {ARTIFACT_SETS[rec.recommendedSets[0]?.setId]?.name ||
-                          rec.recommendedSets[0]?.setId}
+                        {bestSet?.name || rec.recommendedSets[0]?.setId}
                       </span>
                       {rec.recommendedSets[1] && (
-                        <span className="text-slate-400 text-[11px]">
+                        <span className="text-slate-400 text-[11px] hidden sm:inline">
                           / 次点:{' '}
                           {ARTIFACT_SETS[rec.recommendedSets[1].setId]?.name ||
                             rec.recommendedSets[1].setId}
@@ -174,7 +189,7 @@ export function CharacterRecommendList({
                     }}
                     className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-400/10 hover:bg-amber-400/20 text-amber-300 border border-amber-400/30 rounded-xl text-xs font-bold transition shadow-sm"
                   >
-                    <span>装備・ギャップ分析</span>
+                    <span>装備・分析へ</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </button>
 
@@ -193,8 +208,8 @@ export function CharacterRecommendList({
 
               {/* 展開された詳細情報 */}
               {isExpanded && (
-                <div className="p-5 border-t border-slate-800/80 bg-slate-950/60 space-y-5 animate-in slide-in-from-top-2 duration-200">
-                  {/* 推奨聖遺物セットの詳細 */}
+                <div className="p-4 sm:p-5 border-t border-slate-800/80 bg-slate-950/60 space-y-4 animate-in slide-in-from-top-2 duration-200">
+                  {/* 推奨聖遺物セットの詳細（写真付き） */}
                   <div>
                     <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5" />
@@ -203,36 +218,55 @@ export function CharacterRecommendList({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {rec.recommendedSets.map((s, idx) => {
                         const setDef = ARTIFACT_SETS[s.setId];
+                        const artImg =
+                          setDef?.images?.flower ||
+                          setDef?.images?.circlet ||
+                          setDef?.images?.plume;
+
                         return (
                           <div
                             key={s.setId}
-                            className="p-3 bg-slate-900 border border-slate-800 rounded-xl"
+                            className="p-3 bg-slate-900 border border-slate-800 rounded-xl flex gap-3"
                           >
-                            <div className="flex items-center justify-between mb-1">
-                              <span className="font-bold text-slate-100 text-sm">
-                                {idx === 0 ? '👑 最適: ' : '🥈 次点: '}
-                                {setDef?.name || s.setId}
-                              </span>
-                            </div>
-                            <p className="text-xs text-amber-200/80 mb-2">
-                              {s.description}
-                            </p>
-                            {setDef && (
-                              <div className="space-y-1 text-[11px] text-slate-400 bg-slate-950/60 p-2 rounded-lg border border-slate-850">
-                                <div>
-                                  <span className="text-slate-300 font-semibold">
-                                    [2セット]
-                                  </span>{' '}
-                                  {setDef.piece2}
-                                </div>
-                                <div>
-                                  <span className="text-slate-300 font-semibold">
-                                    [4セット]
-                                  </span>{' '}
-                                  {setDef.piece4}
-                                </div>
+                            {/* 聖遺物の写真 */}
+                            {artImg && (
+                              <div className="w-12 h-12 rounded-lg bg-slate-950 border border-slate-800 p-0.5 flex-shrink-0 flex items-center justify-center">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                  src={artImg}
+                                  alt={setDef?.name || s.setId}
+                                  className="w-full h-full object-contain"
+                                />
                               </div>
                             )}
+
+                            <div className="flex-1">
+                              <div className="flex items-center justify-between mb-1">
+                                <span className="font-bold text-slate-100 text-sm">
+                                  {idx === 0 ? '👑 最適: ' : '🥈 次点: '}
+                                  {setDef?.name || s.setId}
+                                </span>
+                              </div>
+                              <p className="text-xs text-amber-200/80 mb-2">
+                                {s.description}
+                              </p>
+                              {setDef && (
+                                <div className="space-y-1 text-[11px] text-slate-400 bg-slate-950/60 p-2 rounded-lg border border-slate-850">
+                                  <div>
+                                    <span className="text-slate-300 font-semibold">
+                                      [2P]
+                                    </span>{' '}
+                                    {setDef.piece2}
+                                  </div>
+                                  <div>
+                                    <span className="text-slate-300 font-semibold">
+                                      [4P]
+                                    </span>{' '}
+                                    {setDef.piece4}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         );
                       })}
