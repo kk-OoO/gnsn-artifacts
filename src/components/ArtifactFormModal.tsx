@@ -226,15 +226,15 @@ export function ArtifactFormModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-xl max-h-[92vh] overflow-y-auto shadow-2xl">
         {/* ヘッダー */}
-        <div className="flex items-center justify-between p-5 border-b border-slate-800 sticky top-0 bg-slate-900/95 backdrop-blur z-10">
+        <div className="flex items-center justify-between p-3.5 sm:p-5 border-b border-slate-800 sticky top-0 bg-slate-900/95 backdrop-blur z-10">
           <div>
-            <h3 className="text-lg font-bold text-slate-100">
+            <h3 className="text-base sm:text-lg font-bold text-slate-100">
               {editingArtifact ? '聖遺物の編集' : '聖遺物の新規登録'}
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-[11px] sm:text-xs text-slate-400">
               所持している聖遺物のステータスを入力してください
             </p>
           </div>
@@ -247,13 +247,13 @@ export function ArtifactFormModal({
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-5 space-y-5">
+        <form onSubmit={handleSubmit} className="p-3.5 sm:p-5 space-y-4 sm:space-y-5">
           {/* 部位選択 */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 mb-2">
               部位を選択
             </label>
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
               {(
                 ['flower', 'plume', 'sands', 'goblet', 'circlet'] as ArtifactSlot[]
               ).map((s) => {
@@ -264,14 +264,14 @@ export function ArtifactFormModal({
                     key={s}
                     type="button"
                     onClick={() => handleSlotChange(s)}
-                    className={`py-2 px-1 text-center rounded-xl border transition flex flex-col items-center gap-1 ${
+                    className={`py-1.5 sm:py-2 px-1 text-center rounded-xl border transition flex flex-col items-center gap-1 ${
                       active
                         ? 'bg-amber-500/20 border-amber-400 text-amber-300 font-bold'
                         : 'border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700 hover:text-slate-200'
                     }`}
                   >
-                    <span className="text-xl">{info.icon}</span>
-                    <span className="text-[11px] truncate w-full">
+                    <span className="text-lg sm:text-xl">{info.icon}</span>
+                    <span className="text-[10px] sm:text-[11px] truncate w-full">
                       {info.ja}
                     </span>
                   </button>
@@ -385,13 +385,13 @@ export function ArtifactFormModal({
 
             <div className="space-y-2">
               {subStats.map((sub, idx) => (
-                <div key={idx} className="flex items-center gap-2">
+                <div key={idx} className="flex items-center gap-1.5 sm:gap-2">
                   <select
                     value={sub.type}
                     onChange={(e) =>
                       updateSubStat(idx, 'type', e.target.value)
                     }
-                    className="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-amber-400"
+                    className="flex-1 min-w-0 bg-slate-950 border border-slate-700 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-amber-400"
                   >
                     {ALL_SUB_STAT_TYPES.map((type) => (
                       <option key={type} value={type}>
@@ -400,7 +400,7 @@ export function ArtifactFormModal({
                     ))}
                   </select>
 
-                  <div className="w-28 flex items-center gap-1">
+                  <div className="w-24 sm:w-28 flex items-center gap-1 flex-shrink-0">
                     <input
                       type="number"
                       step="0.1"
@@ -408,9 +408,9 @@ export function ArtifactFormModal({
                       onChange={(e) =>
                         updateSubStat(idx, 'value', e.target.value)
                       }
-                      className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 font-mono focus:outline-none focus:border-amber-400"
+                      className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-xs text-slate-100 font-mono focus:outline-none focus:border-amber-400"
                     />
-                    <span className="text-xs text-slate-400 w-4">
+                    <span className="text-[11px] text-slate-400 w-3.5 text-center">
                       {STAT_DISPLAY_NAMES[sub.type]?.unit}
                     </span>
                   </div>
@@ -418,7 +418,7 @@ export function ArtifactFormModal({
                   <button
                     type="button"
                     onClick={() => removeSubStat(idx)}
-                    className="p-1.5 text-slate-500 hover:text-rose-400 transition"
+                    className="p-1 sm:p-1.5 text-slate-500 hover:text-rose-400 transition flex-shrink-0"
                   >
                     <X className="w-4 h-4" />
                   </button>

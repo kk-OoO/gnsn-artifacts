@@ -42,15 +42,15 @@ export function StatGapAnalysis({
   };
 
   return (
-    <div className="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-5 shadow-xl backdrop-blur-md">
+    <div className="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-3.5 sm:p-5 shadow-xl backdrop-blur-md">
       {/* ヘッダー＆総合スコア */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-800">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 pb-4 sm:pb-5 border-b border-slate-800">
         <div>
           <div className="flex items-center gap-2">
             <span className="p-1.5 bg-yellow-500/20 text-yellow-400 rounded-lg">
-              <TrendingUp className="w-5 h-5" />
+              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
             </span>
-            <h3 className="text-lg font-bold text-slate-100">
+            <h3 className="text-base sm:text-lg font-bold text-slate-100">
               ステータス達成度 & ギャップ分析
             </h3>
           </div>
@@ -61,15 +61,15 @@ export function StatGapAnalysis({
 
         {/* 総合ビルドスコアバッジ */}
         <div
-          className={`flex items-center gap-3 px-4 py-2 rounded-xl border ${getScoreColor(
+          className={`w-full sm:w-auto flex items-center justify-between sm:justify-start gap-3 px-3.5 sm:px-4 py-2 rounded-xl border ${getScoreColor(
             overallScore
           )}`}
         >
-          <div className="text-right">
-            <div className="text-xs font-medium uppercase tracking-wider opacity-80">
+          <div className="text-left sm:text-right">
+            <div className="text-[10px] sm:text-xs font-medium uppercase tracking-wider opacity-80">
               目標達成スコア
             </div>
-            <div className="text-2xl font-black">{overallScore} / 100</div>
+            <div className="text-xl sm:text-2xl font-black">{overallScore} / 100</div>
           </div>
           <div className="text-2xl font-bold">
             {overallScore >= 90
@@ -120,18 +120,18 @@ export function StatGapAnalysis({
                     {insufficientGaps.map((g) => (
                       <div
                         key={g.statKey}
-                        className="flex items-center justify-between text-xs bg-slate-950/50 px-2.5 py-1.5 rounded-lg border border-rose-500/20"
+                        className="flex flex-col sm:flex-row sm:items-center justify-between text-xs bg-slate-950/50 px-2.5 py-1.5 rounded-lg border border-rose-500/20 gap-1 sm:gap-2"
                       >
                         <span className="font-medium text-slate-200">
                           {g.statName}
                         </span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-slate-400">
+                        <div className="flex items-center justify-between sm:justify-end gap-2 flex-wrap">
+                          <span className="text-slate-400 text-[11px] sm:text-xs">
                             現在 {g.current}
                             {g.unit} / 目標 {g.targetMin}
                             {g.unit}
                           </span>
-                          <span className="text-rose-400 font-bold bg-rose-500/20 px-1.5 py-0.5 rounded">
+                          <span className="text-rose-400 font-bold bg-rose-500/20 px-1.5 py-0.5 rounded text-[11px] whitespace-nowrap">
                             -{(g.targetMin - g.current).toFixed(g.unit === '%' ? 1 : 0)}
                             {g.unit} 不足
                           </span>
@@ -193,9 +193,9 @@ export function StatGapAnalysis({
                 key={g.statKey}
                 className="bg-slate-950/60 border border-slate-800 rounded-xl p-3 hover:border-slate-700 transition"
               >
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-bold text-sm text-slate-200">
+                <div className="flex flex-wrap items-baseline justify-between gap-1 mb-1.5">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="font-bold text-xs sm:text-sm text-slate-200">
                       {g.statName}
                     </span>
                     {isInsufficient && (
@@ -227,10 +227,9 @@ export function StatGapAnalysis({
                       {g.current}
                       {g.unit}
                     </span>
-                    <span className="text-slate-500 text-[11px] font-normal ml-1">
+                    <span className="text-slate-500 text-[10px] sm:text-[11px] font-normal ml-1">
                       / 目標 {g.targetMin}
-                      {g.unit} (理想: {g.targetIdeal}
-                      {g.unit})
+                      {g.unit}
                     </span>
                   </div>
                 </div>

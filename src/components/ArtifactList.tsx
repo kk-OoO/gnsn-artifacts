@@ -95,53 +95,53 @@ export function ArtifactList({
   }, [artifacts]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* 統計バナー */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2.5 sm:p-3.5 flex items-center justify-between">
           <div>
-            <div className="text-xs text-slate-400">登録聖遺物</div>
-            <div className="text-xl font-black text-slate-100">{stats.total} 個</div>
+            <div className="text-[11px] sm:text-xs text-slate-400">登録聖遺物</div>
+            <div className="text-lg sm:text-xl font-black text-slate-100">{stats.total} 個</div>
           </div>
-          <Layers className="w-5 h-5 text-slate-500" />
+          <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-slate-500" />
         </div>
 
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between">
+        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2.5 sm:p-3.5 flex items-center justify-between">
           <div>
-            <div className="text-xs text-amber-400/90 font-medium">神聖遺物 (CV 40+)</div>
-            <div className="text-xl font-black text-amber-300">{stats.godCount} 個</div>
+            <div className="text-[11px] sm:text-xs text-amber-400/90 font-medium">神聖遺物 (CV 40+)</div>
+            <div className="text-lg sm:text-xl font-black text-amber-300">{stats.godCount} 個</div>
           </div>
-          <Sparkles className="w-5 h-5 text-amber-400" />
+          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
         </div>
 
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between">
+        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2.5 sm:p-3.5 flex items-center justify-between">
           <div>
-            <div className="text-xs text-purple-400/90 font-medium">優秀 (CV 30-39)</div>
-            <div className="text-xl font-black text-purple-300">{stats.goodCount} 個</div>
+            <div className="text-[11px] sm:text-xs text-purple-400/90 font-medium">優秀 (CV 30-39)</div>
+            <div className="text-lg sm:text-xl font-black text-purple-300">{stats.goodCount} 個</div>
           </div>
-          <span className="text-lg">💎</span>
+          <span className="text-base sm:text-lg">💎</span>
         </div>
 
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between">
+        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2.5 sm:p-3.5 flex items-center justify-between">
           <div>
-            <div className="text-xs text-emerald-400/90 font-medium">未装備（フリー）</div>
-            <div className="text-xl font-black text-emerald-300">
+            <div className="text-[11px] sm:text-xs text-emerald-400/90 font-medium">未装備（フリー）</div>
+            <div className="text-lg sm:text-xl font-black text-emerald-300">
               {stats.unequippedCount} 個
             </div>
           </div>
-          <span className="text-lg">🎒</span>
+          <span className="text-base sm:text-lg">🎒</span>
         </div>
       </div>
 
       {/* フィルター＆検索ツールバー */}
-      <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 space-y-4 shadow-lg">
+      <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3 sm:p-4 space-y-3 sm:space-y-4 shadow-lg">
         {/* 上段：部位タブ & 新規登録ボタン */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
           {/* 部位切り替えピル */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+          <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none -mx-1 px-1">
             <button
               onClick={() => setSelectedSlot('all')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition ${
+              className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition ${
                 selectedSlot === 'all'
                   ? 'bg-amber-400 text-slate-950 shadow-md shadow-amber-400/20'
                   : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
@@ -159,14 +159,15 @@ export function ArtifactList({
                 <button
                   key={s}
                   onClick={() => setSelectedSlot(s)}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition flex items-center gap-1 ${
+                  className={`px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition flex items-center gap-1 ${
                     active
                       ? 'bg-amber-400 text-slate-950 font-bold shadow-md shadow-amber-400/20'
                       : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
                   }`}
                 >
                   <span>{info.icon}</span>
-                  <span>{info.ja}</span>
+                  <span className="hidden xs:inline">{info.ja}</span>
+                  <span className="xs:hidden">{info.ja.slice(0, 1)}</span>
                   <span className="text-[10px] opacity-75 font-mono">({count})</span>
                 </button>
               );
@@ -176,7 +177,7 @@ export function ArtifactList({
           {/* 新規登録ボタン */}
           <button
             onClick={onAddNew}
-            className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 text-xs font-bold rounded-xl shadow-lg shadow-amber-500/20 transition whitespace-nowrap"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 text-xs font-bold rounded-xl shadow-lg shadow-amber-500/20 transition whitespace-nowrap w-full sm:w-auto"
           >
             <Plus className="w-4 h-4" />
             <span>聖遺物を登録</span>
@@ -184,7 +185,7 @@ export function ArtifactList({
         </div>
 
         {/* 下段：詳細絞り込み＆ソート */}
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 pt-2 border-t border-slate-800/80">
           {/* 検索入力 */}
           <div className="relative">
             <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-500" />
@@ -193,7 +194,7 @@ export function ArtifactList({
               placeholder="セット・キャラ名等で検索..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 bg-slate-950 border border-slate-700/80 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400"
+              className="w-full pl-9 pr-3 py-2 sm:py-1.5 bg-slate-950 border border-slate-700/80 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400"
             />
           </div>
 
@@ -201,7 +202,7 @@ export function ArtifactList({
           <select
             value={selectedSet}
             onChange={(e) => setSelectedSet(e.target.value)}
-            className="bg-slate-950 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-amber-400"
+            className="bg-slate-950 border border-slate-700/80 rounded-xl px-3 py-2 sm:py-1.5 text-xs text-slate-200 focus:outline-none focus:border-amber-400"
           >
             <option value="all">すべてのセット</option>
             {Object.values(ARTIFACT_SETS).map((s) => (
@@ -217,7 +218,7 @@ export function ArtifactList({
             onChange={(e) =>
               setEquipFilter(e.target.value as 'all' | 'unassigned' | 'equipped')
             }
-            className="bg-slate-950 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-amber-400"
+            className="bg-slate-950 border border-slate-700/80 rounded-xl px-3 py-2 sm:py-1.5 text-xs text-slate-200 focus:outline-none focus:border-amber-400"
           >
             <option value="all">装備状態: すべて</option>
             <option value="unassigned">未装備のみ</option>
@@ -228,7 +229,7 @@ export function ArtifactList({
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as 'cv' | 'level' | 'date')}
-            className="bg-slate-950 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-amber-300 font-medium focus:outline-none focus:border-amber-400"
+            className="bg-slate-950 border border-slate-700/80 rounded-xl px-3 py-2 sm:py-1.5 text-xs text-amber-300 font-medium focus:outline-none focus:border-amber-400"
           >
             <option value="cv">会心スコア(CV) 降順</option>
             <option value="level">強化レベル 降順</option>

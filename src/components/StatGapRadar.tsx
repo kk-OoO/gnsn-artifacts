@@ -49,8 +49,11 @@ export function StatGapRadar({ gaps, size = 320 }: StatGapRadarProps) {
   const gridLevels = [0.25, 0.5, 0.75, 1.0];
 
   return (
-    <div className="flex flex-col items-center justify-center p-2">
-      <svg width={size} height={size} className="overflow-visible select-none">
+    <div className="flex flex-col items-center justify-center p-1 w-full">
+      <svg
+        viewBox={`0 0 ${size} ${size}`}
+        className="w-full max-w-[260px] sm:max-w-[320px] h-auto overflow-visible select-none"
+      >
         <defs>
           <radialGradient id="radarBgGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#d4af37" stopOpacity="0.08" />

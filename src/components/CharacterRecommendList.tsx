@@ -125,12 +125,12 @@ export function CharacterRecommendList({
         </div>
 
         {/* 下段：厳選満足フィルターピル */}
-        <div className="flex items-center justify-between pt-2 border-t border-slate-800/80 text-xs">
-          <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 mr-1">状態絞り込み:</span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-slate-800/80 text-xs">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-slate-400 mr-1 text-[11px] sm:text-xs">状態:</span>
             <button
               onClick={() => setSatisfactionFilter('all')}
-              className={`px-2.5 py-1 rounded-lg font-medium transition ${
+              className={`px-2 sm:px-2.5 py-1 rounded-lg font-medium transition text-xs ${
                 satisfactionFilter === 'all'
                   ? 'bg-slate-800 text-slate-100'
                   : 'text-slate-400 hover:text-slate-200'
@@ -140,7 +140,7 @@ export function CharacterRecommendList({
             </button>
             <button
               onClick={() => setSatisfactionFilter('satisfied')}
-              className={`px-2.5 py-1 rounded-lg font-medium flex items-center gap-1 transition ${
+              className={`px-2 sm:px-2.5 py-1 rounded-lg font-medium flex items-center gap-1 transition text-xs ${
                 satisfactionFilter === 'satisfied'
                   ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
                   : 'text-slate-400 hover:text-amber-300'
@@ -151,7 +151,7 @@ export function CharacterRecommendList({
             </button>
             <button
               onClick={() => setSatisfactionFilter('building')}
-              className={`px-2.5 py-1 rounded-lg font-medium transition ${
+              className={`px-2 sm:px-2.5 py-1 rounded-lg font-medium transition text-xs ${
                 satisfactionFilter === 'building'
                   ? 'bg-slate-800 text-slate-100'
                   : 'text-slate-400 hover:text-slate-200'
@@ -162,7 +162,7 @@ export function CharacterRecommendList({
           </div>
 
           {onlyOwnedFilter && (
-            <span className="text-[11px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+            <span className="text-[10px] sm:text-[11px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 self-start sm:self-auto">
               ※ 所持キャラのみ表示中
             </span>
           )}
@@ -398,25 +398,25 @@ export function CharacterRecommendList({
                           推奨メインステータス (時計・杯・冠)
                         </h4>
                         <div className="space-y-2 text-xs">
-                          <div className="flex items-center justify-between bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-850">
+                          <div className="flex flex-wrap items-center justify-between bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-850 gap-1">
                             <span className="text-slate-400">⏳ 時の砂</span>
-                            <span className="font-semibold text-amber-300">
+                            <span className="font-semibold text-amber-300 text-right">
                               {rec.recommendedMainStats.sands
                                 .map((m) => STAT_DISPLAY_NAMES[m]?.label || m)
                                 .join(' / ')}
                             </span>
                           </div>
-                          <div className="flex items-center justify-between bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-850">
+                          <div className="flex flex-wrap items-center justify-between bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-850 gap-1">
                             <span className="text-slate-400">🍷 空の杯</span>
-                            <span className="font-semibold text-amber-300">
+                            <span className="font-semibold text-amber-300 text-right">
                               {rec.recommendedMainStats.goblet
                                 .map((m) => STAT_DISPLAY_NAMES[m]?.label || m)
                                 .join(' / ')}
                             </span>
                           </div>
-                          <div className="flex items-center justify-between bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-850">
+                          <div className="flex flex-wrap items-center justify-between bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-850 gap-1">
                             <span className="text-slate-400">👑 理の冠</span>
-                            <span className="font-semibold text-amber-300">
+                            <span className="font-semibold text-amber-300 text-right">
                               {rec.recommendedMainStats.circlet
                                 .map((m) => STAT_DISPLAY_NAMES[m]?.label || m)
                                 .join(' / ')}
