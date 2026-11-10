@@ -1,5 +1,4 @@
 import { Character } from '@/types/genshin';
-import allMergedCharacters from './allMergedCharacters.json';
+import allCharactersData from './allMergedCharacters.json';
 
-// 全126キャラクターデータ
-export const CHARACTERS: Character[] = allMergedCharacters as Character[];
+export const CHARACTERS: Character[] = allCharactersData as unknown as Character[];
